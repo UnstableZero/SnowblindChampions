@@ -1,0 +1,44 @@
+gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
+
+[Cheat Mode]
+author=Switz0018
+//The famous 7-button glitch is actually just R2.
+//And not a glitch.
+//This line is just holding R2 for you.
+//patch=1,EE,0034BEC0,extended,00000002
+//Sets the "CheatMode" flag in memory
+//Partially works on old characters.
+patch=1,EE,00484540,byte,00000001
+
+[Mods\Skills\Max Rank]
+author=Switz0018
+description=Changes the maximum rank of skills.
+//runskilltree
+patch=1,EE,001c01c0,byte,00000020
+patch=1,EE,001C0580,byte,00000020
+//inventoryadjustskill
+patch=1,EE,001AEB50,byte,00000020
+patch=1,EE,001AEBB8,byte,00000020
+
+[Cheats\Infinite Mana]
+author=Switz0018
+description=Player 1 infinite mana.
+//Copies player one max mana to current mana, constantly.
+patch=1,EE,504086C8,extended,00000004
+patch=1,EE,004086C4,extended,00000000
+
+[Mods\World Difficulty]
+author=Switz0018
+description=Force the scaling difficulty to a number.
+//Multiplier used to calculate ALL
+//Creature stats, boss stats, and loot all use this!
+//Is constantly changed throughout the game.
+//Adventurous starts at "40400000"(3)
+//IS FLOAT (IEEE-754); VALUE IS FORCED
+//Uncomment the line under your region to use this cheat.
+//NTSC
+//patch=1,EE,20484CAC,extended,XXXXXXXX
+//PAL EN-ESP
+//patch=1,EE,2043F53C,extended,XXXXXXXX
+//PAL EN-FR-DE
+//patch=1,EE,2043E064,extended,XXXXXXXX

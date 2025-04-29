@@ -1,0 +1,72 @@
+gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
+
+[OLD Widescreen 16:9]
+gsaspectratio=16:9
+author=No.47
+//Replaced.
+//patch=1,EE,20480074,word,3F3FFFFF
+//patch=1,EE,204800E4,word,3F3FFFFF
+//Nothing in-game.
+//patch=1,EE,204800C4,word,3FE2FC95
+//Frustum? Menu? Nothing in-game.
+//patch=1,EE,204801B8,word,3FE2FC95
+//Nothing in-game.
+//patch=1,EE,204801C0,word,3FE2FC95
+//patch=1,EE,204801C8,word,3FE2FC95
+//Replaced.
+//patch=1,EE,204801CC,word,3FE2FC95
+//patch=1,EE,204801D4,word,3FE2FC95
+
+[No-Interlacing]
+gsinterlacemode=1
+author=Agrippa
+description=EE overclock is needed to avoid infrequent frame rate drops.
+patch=1,EE,204843E0,extended,00000000
+patch=1,EE,204843E4,extended,00000001
+patch=1,EE,20484474,extended,00000001
+patch=1,EE,20190AE4,extended,10000010
+patch=1,EE,20190B48,extended,10000005
+patch=1,EE,201913D8,extended,24020001
+
+[Widescreen 16:9]
+gsaspectratio=16:9
+author=No.47,PeteDelta,Switz0018
+//Updated to use the floats from known PAL Widescreen patches.
+//Other aspect ratios should work. If adapted.
+patch=1,EE,20480074,word,3F19CCCC
+patch=1,EE,204800E4,word,3F19CCCC
+patch=1,EE,204801C0,word,3FE33D70
+patch=1,EE,204801C8,word,3FE33D70
+
+//These are here as reference for those who would like to try the other ratios.
+//[Widescreen/16:10]
+//gsaspectratio=Stretch
+//author=PeterDelta, converted by pgert
+//patch=1,EE,0017F3E0,word,3C013F2A
+//patch=1,EE,0018A1DC,word,3C013F2A
+//patch=1,EE,00191324,word,3C013FCC
+//patch=1,EE,00191664,word,3C013FCC
+//
+//[Widescreen/15:10]
+//gsaspectratio=Stretch
+//author=PeterDelta, converted by pgert
+//patch=1,EE,0017F3E0,word,3C013F35
+//patch=1,EE,0018A1DC,word,3C013F35
+//patch=1,EE,00191324,word,3C013FBF
+//patch=1,EE,00191664,word,3C013FBF
+//
+//[Widescreen/20:9]
+//gsaspectratio=Stretch
+//author=PeterDelta, converted by pgert
+//patch=1,EE,0017F3E0,word,3C013EF5
+//patch=1,EE,0018A1DC,word,3C013EF5
+//patch=1,EE,00191324,word,3C01400E
+//patch=1,EE,00191664,word,3C01400E
+//
+//[Widescreen/21:9]
+//gsaspectratio=Stretch
+//author=PeterDelta, converted by pgert
+//patch=1,EE,0017F3E0,word,3C013EE9
+//patch=1,EE,0018A1DC,word,3C013EE9
+//patch=1,EE,00191324,word,3C014015
+//patch=1,EE,00191664,word,3C014015
