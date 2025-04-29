@@ -1,0 +1,225 @@
+//This is a collection of codes used to calculate various stats.
+//These settings are to make the game harder, with a subjective view on "balance".
+[Mods\Stats\Creation Start Points]
+author=Switz0018
+description=These codes modify starting stats.
+//Stats are in display order, use HEX integers. Max is 7F (127)
+//Barbarian
+patch=1,EE,004EF400,byte,00000011
+patch=1,EE,004EF404,byte,0000000B
+patch=1,EE,004EF408,byte,0000000C
+patch=1,EE,004EF40C,byte,00000011
+//Cleric
+patch=1,EE,004EF410,byte,0000000D
+patch=1,EE,004EF414,byte,00000012
+patch=1,EE,004EF418,byte,0000000D
+patch=1,EE,004EF41C,byte,0000000D
+//Shadow Knight
+patch=1,EE,004EF420,byte,0000000E
+patch=1,EE,004EF424,byte,0000000F
+patch=1,EE,004EF428,byte,0000000D
+patch=1,EE,004EF42C,byte,0000000F
+//Ranger
+patch=1,EE,004EF430,byte,0000000E
+patch=1,EE,004EF434,byte,0000000D
+patch=1,EE,004EF438,byte,00000011
+patch=1,EE,004EF43C,byte,0000000D
+//Wizard
+patch=1,EE,004EF440,byte,0000000C
+patch=1,EE,004EF444,byte,00000013
+patch=1,EE,004EF448,byte,0000000C
+patch=1,EE,004EF44C,byte,0000000E
+//Berserker
+patch=1,EE,004EF450,byte,00000010
+patch=1,EE,004EF454,byte,0000000B
+patch=1,EE,004EF458,byte,0000000F
+patch=1,EE,004EF45C,byte,0000000F
+//Shaman
+patch=1,EE,004EF460,byte,0000000D
+patch=1,EE,004EF464,byte,00000012
+patch=1,EE,004EF468,byte,0000000C
+patch=1,EE,004EF46C,byte,0000000E
+
+[Mods\Skills\Skill Cap]
+author=Switz0018
+description=Patches instructions that check max skill points.
+//Use HEX integers.
+patch=1,EE,001C2700,byte,00000012
+patch=1,EE,001C2698,byte,00000012
+patch=1,EE,001D5778,byte,00000012
+patch=1,EE,001D5418,byte,00000012
+
+
+[Mods\Skills\Skill Point Levels]
+author=Switz0018
+description=Sets levels for 2-5 skill points respectively.
+//Use HEX integers.
+//2 Points
+patch=1,EE,001D31CC,byte,00000010
+//3 Points
+patch=1,EE,001D31E4,byte,0000001F
+//4 Points
+patch=1,EE,001D31EC,byte,0000002E
+//5 Points
+patch=1,EE,001D31FC,byte,0000003D
+
+[Mods\Stats\Level Up]
+author=Trigin
+description=This code sets attribute points on level up.
+//Use HEX integers.
+patch=1,EE,001D3218,byte,00000001
+
+[Mods\Skills\Weapon Nerf]
+author=Switz0018
+description=Reduces the global weapon damage multiplier, and attack bonus multiplier.
+//Damage multiplier.
+//IS FLOAT (IEEE-754)
+patch=1,EE,001046B4,short,00003F41
+//Attack Bonus
+//IS FLOAT (IEEE-754)
+patch=1,EE,00104024,short,00003BF5
+patch=1,EE,00104028,short,000052B6
+
+[Mods\Skills\Slam Nerf]
+author=Switz0018
+description=Changes final multiplier for Slam.
+//IS FLOAT (IEEE-754)
+patch=1,EE,001BF43C,short,000040B8
+patch=1,EE,001BF440,short,0000E38D
+
+[Mods\Skills\Multifire Nerf]
+author=Switz0018
+description=Changes damage ratio and arrow ratio.
+//Damage
+//Use HEX integer.
+patch=1,EE,002D9988,byte,00000058
+//Arrows
+//IS FLOAT (IEEE-754)
+patch=1,EE,002D995C,short,000040B7
+patch=1,EE,002D9960,short,00000379
+
+[Mods\Stats\Mana]
+author=Switz0018
+description=Fixes base mana for challenge modes.
+//These values are SUBTRACTED from the start.
+//ALL FLOAT (IEEE-754)
+//Barbarian
+patch=1,EE,001B6788,short,00004150
+//Shadow Knight
+patch=1,EE,001B67D0,short,00004140
+//Cleric
+patch=1,EE,001B6820,short,00004140
+//Wizard
+patch=1,EE,001B6858,short,00004140
+//Ranger
+patch=1,EE,001B68A8,short,00004100
+/Berserker
+patch=1,EE,001B68E0,short,00004100
+//Shaman
+patch=1,EE,001B6918,short,00004140
+
+[Mods\Stats\Health]
+author=Switz0018
+description=Fixes base health for challenge modes.
+//These values are SUBTRACTED from the start.
+//ALL FLOAT (IEEE-754)
+//Barbarian
+patch=1,EE,001B67B4,short,00004234
+//Shadow Knight
+patch=1,EE,001B6804,short,0000420C
+//Cleric and Ranger
+patch=1,EE,001B68C4,short,000041F0
+//Wizard
+patch=1,EE,001B688C,short,000041B0
+//Berserker
+patch=1,EE,001B6900,short,00004208
+//Shaman
+patch=1,EE,001B6944,short,000041D0
+
+[Mods\Stats\Creation Alloc Points]
+author=Switz0018
+description=This code changes allocation points at creation.
+//Use HEX integer.
+patch=1,EE,00226C78,byte,0000000A
+
+[Mods\Experience Table]
+//The whole experience table, but bigger numbers.
+patch=0,EE,2041b55c,extended,0000055B
+patch=0,EE,2041b560,extended,00000F98
+patch=0,EE,2041b564,extended,00001FB4
+patch=0,EE,2041b568,extended,000033C0
+patch=0,EE,2041b56c,extended,000049A4
+patch=0,EE,2041b570,extended,00006572
+patch=0,EE,2041b574,extended,00008424
+patch=0,EE,2041b578,extended,0000ABE0
+patch=0,EE,2041b57c,extended,0000D65B
+patch=0,EE,2041b580,extended,000103E8
+patch=0,EE,2041b584,extended,00010724
+patch=0,EE,2041b588,extended,00013F72
+patch=0,EE,2041b58c,extended,00017BA4
+patch=0,EE,2041b590,extended,0001BDC0
+patch=0,EE,2041b594,extended,000210B4
+patch=0,EE,2041b598,extended,00021998
+patch=0,EE,2041b59c,extended,00026E5B
+patch=0,EE,2041b5a0,extended,0002C300
+patch=0,EE,2041b5a4,extended,00031CB4
+patch=0,EE,2041b5a8,extended,00034840
+patch=0,EE,2041b5ac,extended,0003A7A4
+patch=0,EE,2041b5b0,extended,00041200
+patch=0,EE,2041b5b4,extended,00044C24
+patch=0,EE,2041b5b8,extended,0004BB48
+patch=0,EE,2041b5bc,extended,0004FE5B
+patch=0,EE,2041b5c0,extended,00057848
+patch=0,EE,2041b5c4,extended,0005F624
+patch=0,EE,2041b5c8,extended,00074B00
+patch=0,EE,2041b5cc,extended,0007D1A4
+patch=0,EE,2041b5d0,extended,00082D40
+patch=0,EE,2041b5d4,extended,0008BBB4
+patch=0,EE,2041b5d8,extended,00092100
+patch=0,EE,2041b5dc,extended,0009B95B
+patch=0,EE,2041b5e0,extended,000A2898
+patch=0,EE,2041b5e4,extended,000AC8B4
+patch=0,EE,2041b5e8,extended,000B44C0
+patch=0,EE,2041b5ec,extended,000BF1A4
+patch=0,EE,2041b5f0,extended,000C7072
+patch=0,EE,2041b5f4,extended,000CF524
+patch=0,EE,2041b5f8,extended,000DB0E0
+patch=0,EE,2041b5fc,extended,000E3F5B
+patch=0,EE,2041b600,extended,000F0AE8
+patch=0,EE,2041b604,extended,000F9824
+patch=0,EE,2041b608,extended,00103872
+patch=0,EE,2041b60c,extended,000110A4
+patch=0,EE,2041b610,extended,0011A8C0
+patch=0,EE,2041b614,extended,001251B4
+patch=0,EE,2041b618,extended,00130598
+patch=0,EE,2041b61c,extended,0013E85B
+patch=0,EE,2041b620,extended,0014A000
+patch=0,EE,2041b624,extended,00155EB4
+patch=0,EE,2041b628,extended,00162240
+patch=0,EE,2041b62c,extended,0016D7A4
+patch=0,EE,2041b630,extended,0017E2E0
+patch=0,EE,2041b634,extended,0018B424
+patch=0,EE,2041b638,extended,00198200
+patch=0,EE,2041b63c,extended,001A5E5B
+patch=0,EE,2041b640,extended,001B3B48
+patch=0,EE,2041b644,extended,001C1A40
+patch=0,EE,2041b648,extended,001D1800
+patch=0,EE,2041b64c,extended,001DEBC4
+patch=0,EE,2041b650,extended,001F1A44
+patch=0,EE,2041b654,extended,00200CE4
+patch=0,EE,2041b658,extended,0020F620
+patch=0,EE,2041b65c,extended,0021F478
+patch=0,EE,2041b660,extended,0022F7B8
+patch=0,EE,2041b664,extended,00241AC4
+patch=0,EE,2041b668,extended,00252F90
+patch=0,EE,2041b66c,extended,00263840
+patch=0,EE,2041b670,extended,00280390
+patch=0,EE,2041b674,extended,00291B40
+patch=0,EE,2041b678,extended,002A3A00
+patch=0,EE,2041b67c,extended,002B5E00
+patch=0,EE,2041b680,extended,002C8488
+patch=0,EE,2041b684,extended,002DB400
+patch=0,EE,2041b688,extended,002EE21C
+patch=0,EE,2041b68c,extended,00301948
+patch=0,EE,2041b690,extended,00313A64
+patch=0,EE,2041b694,extended,00326260
