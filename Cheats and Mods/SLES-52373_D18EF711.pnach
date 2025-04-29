@@ -1,0 +1,10 @@
+gametitle=Champions of Norrath * PAL-M2 (En,Es) * SLES-52373 * D18EF711
+
+[Mods\World Difficulty]
+author=Switz0018
+//Multiplier used to calculate ALL
+//Creature stats, boss stats, and loot all use this!
+//Is constantly changed throughout the game.
+//Adventurous starts at "40400000"(3)
+//IS FLOAT (IEEE-754); VALUE IS FORCED
+patch=1,EE,2043F53C,extended,XXXXXXXX

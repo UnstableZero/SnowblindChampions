@@ -35,10 +35,4 @@ description=Force the scaling difficulty to a number.
 //Is constantly changed throughout the game.
 //Adventurous starts at "40400000"(3)
 //IS FLOAT (IEEE-754); VALUE IS FORCED
-//Uncomment the line under your region to use this cheat.
-//NTSC
-//patch=1,EE,20484CAC,extended,XXXXXXXX
-//PAL EN-ESP
-//patch=1,EE,2043F53C,extended,XXXXXXXX
-//PAL EN-FR-DE
-//patch=1,EE,2043E064,extended,XXXXXXXX
+patch=1,EE,20484CAC,extended,XXXXXXXX

@@ -3,17 +3,11 @@ gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
 [OLD Widescreen 16:9]
 gsaspectratio=16:9
 author=No.47
-//Replaced.
 patch=1,EE,20480074,word,3F3FFFFF
 patch=1,EE,204800E4,word,3F3FFFFF
-//Nothing in-game.
 patch=1,EE,204800C4,word,3FE2FC95
-//Frustum? Menu? Nothing in-game.
 patch=1,EE,204801B8,word,3FE2FC95
-//Nothing in-game.
 patch=1,EE,204801C0,word,3FE2FC95
-patch=1,EE,204801C8,word,3FE2FC95
-//Replaced.
 patch=1,EE,204801CC,word,3FE2FC95
 patch=1,EE,204801D4,word,3FE2FC95
 
@@ -28,15 +22,15 @@ patch=1,EE,20190AE4,extended,10000010
 patch=1,EE,20190B48,extended,10000005
 patch=1,EE,201913D8,extended,24020001
 
+//These are largely untested, rough guesses, and could be better.
 [Widescreen 16:9]
 gsaspectratio=16:9
 author=No.47,PeteDelta,Switz0018
 //Updated to use the floats from known PAL Widescreen patches.
-//Other aspect ratios should work. If adapted.
-patch=1,EE,20480074,word,3F19CCCC
-patch=1,EE,204800E4,word,3F19CCCC
-patch=1,EE,204801C0,word,3FE33D70
-patch=1,EE,204801C8,word,3FE33D70
+patch=1,EE,20480074,word,3F190000
+patch=1,EE,204800E4,word,3F190000
+patch=1,EE,204801C0,word,3FE30000
+patch=1,EE,204801C8,word,3FE30000
 //viewFrustum modifiers go here!
 //Set to 0.5 and -0.5 for ease of reading, optimization may be required if crashes occur.
 //Left Side
@@ -44,35 +38,62 @@ patch=1,EE,206EB9B0,word,3F000000//3F43751F (0.7635059)
 //Right Side
 patch=1,EE,206EB9BC,word,BF000000//BF43751F (-0.7635059)
 
-//These are here as reference for those who would like to try the other ratios.
-//[Widescreen/16:10]
-//gsaspectratio=Stretch
-//author=PeterDelta, converted by pgert
-//patch=1,EE,0017F3E0,word,3C013F2A
-//patch=1,EE,0018A1DC,word,3C013F2A
-//patch=1,EE,00191324,word,3C013FCC
-//patch=1,EE,00191664,word,3C013FCC
-//
-//[Widescreen/15:10]
-//gsaspectratio=Stretch
-//author=PeterDelta, converted by pgert
-//patch=1,EE,0017F3E0,word,3C013F35
-//patch=1,EE,0018A1DC,word,3C013F35
-//patch=1,EE,00191324,word,3C013FBF
-//patch=1,EE,00191664,word,3C013FBF
-//
-//[Widescreen/20:9]
-//gsaspectratio=Stretch
-//author=PeterDelta, converted by pgert
-//patch=1,EE,0017F3E0,word,3C013EF5
-//patch=1,EE,0018A1DC,word,3C013EF5
-//patch=1,EE,00191324,word,3C01400E
-//patch=1,EE,00191664,word,3C01400E
-//
-//[Widescreen/21:9]
-//gsaspectratio=Stretch
-//author=PeterDelta, converted by pgert
-//patch=1,EE,0017F3E0,word,3C013EE9
-//patch=1,EE,0018A1DC,word,3C013EE9
-//patch=1,EE,00191324,word,3C014015
-//patch=1,EE,00191664,word,3C014015
+[Widescreen/16:10]
+gsaspectratio=Stretch
+author=PeterDelta, converted by Switz0018
+//Updated to use the floats from known PAL Widescreen patches.
+patch=1,EE,20480074,word,3F2A0000
+patch=1,EE,204800E4,word,3F2A0000
+patch=1,EE,204801C0,word,3FCC0000
+patch=1,EE,204801C8,word,3FCC0000
+//viewFrustum modifiers go here!
+//Set to 0.5 and -0.5 for ease of reading, optimization may be required if crashes occur.
+//Left Side
+patch=1,EE,206EB9B0,word,3F000000//3F43751F (0.7635059)
+//Right Side
+patch=1,EE,206EB9BC,word,BF000000//BF43751F (-0.7635059)
+
+[Widescreen/15:10]
+gsaspectratio=Stretch
+author=PeterDelta, converted by Switz0018
+//Updated to use the floats from known PAL Widescreen patches.
+patch=1,EE,20480074,word,3F350000
+patch=1,EE,204800E4,word,3F350000
+patch=1,EE,204801C0,word,3FBF0000
+patch=1,EE,204801C8,word,3FBF0000
+//viewFrustum modifiers go here!
+//Set to 0.5 and -0.5 for ease of reading, optimization may be required if crashes occur.
+//Left Side
+patch=1,EE,206EB9B0,word,3F000000//3F43751F (0.7635059)
+//Right Side
+patch=1,EE,206EB9BC,word,BF000000//BF43751F (-0.7635059)
+
+[Widescreen/20:9]
+gsaspectratio=Stretch
+author=PeterDelta, converted by Switz0018
+//Updated to use the floats from known PAL Widescreen patches.
+patch=1,EE,20480074,word,3EF50000
+patch=1,EE,204800E4,word,3EF50000
+patch=1,EE,204801C0,word,400E0000
+patch=1,EE,204801C8,word,400E0000
+//viewFrustum modifiers go here!
+//Set to 0.5 and -0.5 for ease of reading, optimization may be required if crashes occur.
+//Left Side
+patch=1,EE,206EB9B0,word,3F000000//3F43751F (0.7635059)
+//Right Side
+patch=1,EE,206EB9BC,word,BF000000//BF43751F (-0.7635059)
+
+[Widescreen/21:9]
+gsaspectratio=Stretch
+author=PeterDelta, converted by Switz0018
+//Updated to use the floats from known PAL Widescreen patches.
+patch=1,EE,20480074,word,3EE90000
+patch=1,EE,204800E4,word,3EE90000
+patch=1,EE,204801C0,word,40150000
+patch=1,EE,204801C8,word,40150000
+//viewFrustum modifiers go here!
+//Set to 0.5 and -0.5 for ease of reading, optimization may be required if crashes occur.
+//Left Side
+patch=1,EE,206EB9B0,word,3F000000//3F43751F (0.7635059)
+//Right Side
+patch=1,EE,206EB9BC,word,BF000000//BF43751F (-0.7635059)
