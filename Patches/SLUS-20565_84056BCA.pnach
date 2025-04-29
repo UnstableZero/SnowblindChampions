@@ -8,7 +8,7 @@ patch=1,EE,20480074,word,3F3FFFFF
 patch=1,EE,204800E4,word,3F3FFFFF
 //Nothing in-game.
 patch=1,EE,204800C4,word,3FE2FC95
-Frustum? Menu? Nothing in-game.
+//Frustum? Menu? Nothing in-game.
 patch=1,EE,204801B8,word,3FE2FC95
 //Nothing in-game.
 patch=1,EE,204801C0,word,3FE2FC95
