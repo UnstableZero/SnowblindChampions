@@ -1,0 +1,65 @@
+[Deprecated\Skills\Multifire Nerf]
+//Need to find origin of data; skill ramps.
+patch=1,EE,006E2738,extended,0000005F
+patch=1,EE,206E2744,extended,40B73339
+
+[Deprecated\Skills\Weapon Skill Nerf]
+description=Brings melee inline with ranged.
+//Unused save-data is used to check if a character has lost their free point in melee.
+//Player 1
+//Blunt
+patch=1,EE,D04DD648,extended,020100FF
+patch=1,EE,30100001,extended,004DD5FA
+patch=1,EE,004DD648,extended,000000EE
+//Slashing
+patch=1,EE,D04DD5FC,extended,0301003D
+patch=1,EE,D04DD649,extended,020100FF
+patch=1,EE,30100001,extended,004DD5FE
+patch=1,EE,004DD649,extended,000000EE
+//Player 2
+//Blunt
+patch=1,EE,D04E2278,extended,020100FF
+patch=1,EE,30100001,extended,004E222A
+patch=1,EE,004E2278,extended,000000EE
+//Slashing
+patch=1,EE,D04E222C,extended,0301003D
+patch=1,EE,D04E2279,extended,020100FF
+patch=1,EE,30100001,extended,004E222E
+patch=1,EE,004E2279,extended,000000EE
+//Player 3
+//Blunt
+patch=1,EE,D04E6EA8,extended,020100FF
+patch=1,EE,30100001,extended,004E6E5A
+patch=1,EE,004E6EA8,extended,000000EE
+//Slashing
+patch=1,EE,D04E6E5C,extended,0301003D
+patch=1,EE,D04E6EA9,extended,020100FF
+patch=1,EE,30100001,extended,004E6E5E
+patch=1,EE,004E6EA9,extended,000000EE
+//Player 4
+//Blunt
+patch=1,EE,D04EBAD8,extended,020100FF
+patch=1,EE,30100001,extended,004EBA8A
+patch=1,EE,004EBAD8,extended,000000EE
+//Slashing
+patch=1,EE,D04EBA8C,extended,0301003D
+patch=1,EE,D04EBAD9,extended,020100FF
+patch=1,EE,30100001,extended,004EBA8E
+patch=1,EE,004EBAD9,extended,000000EE
+
+//Breaks free spells, would be fine if it didn't lock the tree.
+[Deprecated\Skills\Free Point Nerf]
+author=Switz0018
+description=Removes all starting skill points.
+//Barbarian, Berserker, Ranger, Shadow Knight
+patch=1,EE,001B1B20,byte,00000000
+patch=1,EE,001B1B44,byte,00000000
+//Cleric
+patch=1,EE,001B1A4C,byte,00000000
+patch=1,EE,001B1A98,byte,00000000
+//Wizard
+patch=1,EE,001B1AE0,byte,00000000
+//Shaman
+patch=1,EE,001B1B64,byte,00000000
+patch=1,EE,001B1B80,byte,00000000
+patch=1,EE,001B1BA4,byte,00000000

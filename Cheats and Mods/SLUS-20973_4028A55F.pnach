@@ -1,0 +1,153 @@
+gametitle=Champions: Return to Arms [SLUS_209.73]
+//This is for 2.00
+[Debug\Enable]
+author=Trigin, updated by Switz0018
+patch=1,EE,004F8EE0,extended,00000001
+//Works for Alpha build, why? How? Lizard people?
+//Can this be used to get the better debug experience in release?
+//patch=1,EE,004F9550,extended,00000001
+
+[Debug\Debug Menu]
+author=Trigin, updated by Switz0018
+patch=1,EE,10020310,extended,004DB030
+patch=1,EE,D04DB032,extended,00000040
+patch=1,EE,204DB03C,extended,00000000
+
+[Debug\Debug Inv]
+author=Trigin, updated by Switz0018
+description=24k lbs of stuff!
+patch=1,EE,C041BFE0,extended,00000800
+patch=1,EE,1041BFE0,extended,00000803
+patch=1,EE,1041C038,extended,00000803
+patch=1,EE,1041C090,extended,00000803
+patch=1,EE,1041C0E8,extended,00000803
+
+[Cheats\Experience]
+author=Trigin
+description=Experience Cheat
+patch=1,EE,201D3194,extended,7fffffff
+
+[Cheats\Infinite Mana]
+author=Switz0018
+//Copies player 1 max mana to current mana constantly.
+patch=1,EE,504D8BB4,extended,00000004
+patch=1,EE,004D8BB0,extended,00000000
+
+[Epic]
+author=Switz0018
+comment=Adds a custom menu with Epic for offline play.
+//These codes patch offset calculations.
+patch=1,EE,001E1A38,short,00006B18
+patch=1,EE,001E124C,short,00006B18
+//These write the pointers in empty memory.
+patch=1,EE,004F6B18,word,0053CC58
+patch=1,EE,004F6B28,word,0053CC68
+patch=1,EE,004F6B38,word,0053CC78
+patch=1,EE,004F6B48,word,0053CC88
+patch=1,EE,004F6B58,word,00557200
+
+//Hex colours are lit, the rings on the floor are a texture
+//I wish I understood texture replacing, instead all I get is this.
+[Mods\Multiplayer Colours\Player 1]
+//Colours are BGR XX YYZZ
+//Player 1
+patch=1,EE,001BF2A8,byte,00000090
+patch=1,EE,001BF2AC,short,00004060
+
+[Mods\Multiplayer Colours\Player 2]
+//Player 2
+patch=1,EE,001BF2C4,byte,00000000
+patch=1,EE,001BF2CC,short,00004DFF
+
+[Mods\Multiplayer Colours\Player 3]
+//Player 3
+patch=1,EE,001BF2E0,byte,000000FF
+patch=1,EE,001BF2E8,short,0000FF00
+
+[Mods\Multiplayer Colours\Player 4]
+//Player 4
+patch=1,EE,001BF300,byte,0000FF
+patch=1,EE,001BF308,short,0000FFFF
+
+[Camera Speed]
+author=Switz0018
+description=Sets camera rotation speed.
+//value is FLOAT
+patch=1,EE,004F8404,word,40000000
+
+[Mods\Level-Sync\Player 1]
+author=Switz0018
+description=Enable to sync to player 1 on level up.
+//Player 1 attribute point check
+//Copy-paste Player 1 XP to everyone else
+patch=1,EE,D04D8BDC,extended,06310000
+patch=1,EE,504D8B4C,extended,00000004
+patch=1,EE,004DD77C,extended,00000000
+patch=1,EE,504D8B4C,extended,00000004
+patch=1,EE,004E23AC,extended,00000000
+patch=1,EE,504D8B4C,extended,00000004
+patch=1,EE,004E6FDC,extended,00000000
+
+[Mods\Level-Sync\Player 2]
+author=Switz0018
+description=Enable to sync to player 2 on level up.
+//Player 2 attribute point check
+//Copy-paste Player 2 XP to everyone else
+patch=1,EE,D04DD80C,extended,06310000
+patch=1,EE,504DD77C,extended,00000004
+patch=1,EE,004D8B4C,extended,00000000
+patch=1,EE,504DD77C,extended,00000004
+patch=1,EE,004E23AC,extended,00000000
+patch=1,EE,504DD77C,extended,00000004
+patch=1,EE,004E6FDC,extended,00000000
+
+[Mods\Level-Sync\Player 3]
+author=Switz0018
+description=Enable to sync to player 3 on level up.
+//Player 3 attribute point check
+//Copy-paste Player 3 XP to everyone else
+patch=1,EE,D04E243C,extended,06310000
+patch=1,EE,504E23AC,extended,00000004
+patch=1,EE,004D8B4C,extended,00000000
+patch=1,EE,504E23AC,extended,00000004
+patch=1,EE,004DD77C,extended,00000000
+patch=1,EE,504E23AC,extended,00000004
+patch=1,EE,004E6FDC,extended,00000000
+
+[Mods\Level-Sync\Player 4]
+author=Switz0018
+description=Enable to sync to player 4 on level up.
+//Player 4 attribute point check
+//Copy-paste Player 4 XP to everyone else
+patch=1,EE,D04E706C,extended,06310000
+patch=1,EE,504E6FDC,extended,00000004
+patch=1,EE,004D8B4C,extended,00000000
+patch=1,EE,504E6FDC,extended,00000004
+patch=1,EE,004DD77C,extended,00000000
+patch=1,EE,504E6FDC,extended,00000004
+patch=1,EE,004E23AC,extended,00000000
+
+[Mods\World Difficulty]
+author=Switz0018
+//Multiplier used to calculate ALL
+//Creature stats, Boss stats, and loot all use this!
+//Is constantly changed throughout the game.
+//Adventurous starts at "40400000"(3)
+//Courageous starts at "42110000"(36.25)
+//Champion starts at "427D0000"(63.25)
+//Legendary starts at "42B48000"(90.25)
+//Epic starts at "42EA8000"(117.25)
+//Twisted Nightmare is "430E0000"(142)
+//IS FLOAT; VALUE IS FORCED
+patch=1,EE,004F714C,word,43160000
+
+[Mods\Skills\Skill Cap]
+author=Switz0018
+description=Patches instructions that check max skill points.
+//Use integers.
+//One of these is supposed to be +1 for the tooltip.
+//I forgot. Same with HardMode, will fix.
+patch=1,EE,001C2700,byte,00000020
+patch=1,EE,001C2698,byte,00000020
+patch=1,EE,001D5778,byte,00000020
+patch=1,EE,001D5418,byte,00000020
