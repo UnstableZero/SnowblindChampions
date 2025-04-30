@@ -48,14 +48,16 @@ description=Helps heavy areas, looks terrible.
 //Frustum view is set, and then culled, in an attempt to make the game look smooth.
 //If we cull deep into the screen, the game does a good job of dealing with heavy areas.
 //This does look like hot garbage though.
+//Reduced aggression, save cycles culling too much. Still culling a lot.
+//Caves of Khathuun are a great test for this.
 //Right
-patch=1,EE,006EB9B8,word,3F0554A9//3F2554A9
+patch=1,EE,006EB9B8,word,3F1054A9//3F2554A9
 //Left
-patch=1,EE,006EB9C4,word,3F0554A9//3F2554A9
+patch=1,EE,006EB9C4,word,3F1054A9//3F2554A9
 //Top
-patch=1,EE,006EB9D0,word,3EBC6BF1//3EDC6BF1
+patch=1,EE,006EB9D0,word,3ECC6BF1//3EDC6BF1
 //Bottom
-patch=1,EE,006EB9DC,word,3EBC6BF1//3EDC6BF1
+patch=1,EE,006EB9DC,word,3ECC6BF1//3EDC6BF1
 
 //These are largely untested, rough guesses, and could be better.
 [Widescreen/16:10]
