@@ -1,6 +1,7 @@
 gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
 
 [OLD Widescreen 16:9]
+//Left in for comparison.
 gsaspectratio=16:9
 author=No.47
 patch=1,EE,20480074,word,3F3FFFFF
@@ -22,22 +23,41 @@ patch=1,EE,20190AE4,extended,10000010
 patch=1,EE,20190B48,extended,10000005
 patch=1,EE,201913D8,extended,24020001
 
-//These are largely untested, rough guesses, and could be better.
 [Widescreen 16:9]
 gsaspectratio=16:9
 author=No.47,PeteDelta,Switz0018
 //Updated to use the floats from known PAL Widescreen patches.
-patch=1,EE,20480074,word,3F190000
-patch=1,EE,204800E4,word,3F190000
-patch=1,EE,204801C0,word,3FE30000
-patch=1,EE,204801C8,word,3FE30000
+//Tuned frustum view.
+patch=1,EE,20480074,word,3F19FFFF
+patch=1,EE,204800E4,word,3F19FFFF
+patch=1,EE,204801C0,word,3FE3FC95
+patch=1,EE,204801C8,word,3FE3FC95
 //viewFrustum modifiers go here!
-//Set to 0.5 and -0.5 for ease of reading, optimization may be required if crashes occur.
 //Left Side
-patch=1,EE,206EB9B0,word,3F000000//3F43751F (0.7635059)
+patch=1,EE,206EB9B0,word,3F22751F//3F43751F (0.7635059)
 //Right Side
-patch=1,EE,206EB9BC,word,BF000000//BF43751F (-0.7635059)
+patch=1,EE,206EB9BC,word,BF22751F//BF43751F (-0.7635059)
+//These are here for reference, get funky with it.
+//Top
+//patch=1,EE,006EB9CC,word,3F770FD6//3F670FD6
+//Bottom
+//patch=1,EE,006EB9D8,word,BF770FD6//BF670FD6
 
+[EXPERIMENTAL Aggressive Culling]
+description=Helps heavy areas, looks terrible.
+//Frustum view is set, and then culled, in an attempt to make the game look smooth.
+//If we cull deep into the screen, the game does a good job of dealing with heavy areas.
+//This does look like hot garbage though.
+//Right
+patch=1,EE,006EB9B8,word,3F0554A9//3F2554A9
+//Left
+patch=1,EE,006EB9C4,word,3F0554A9//3F2554A9
+//Top
+patch=1,EE,006EB9D0,word,3EBC6BF1//3EDC6BF1
+//Bottom
+patch=1,EE,006EB9DC,word,3EBC6BF1//3EDC6BF1
+
+//These are largely untested, rough guesses, and could be better.
 [Widescreen/16:10]
 gsaspectratio=Stretch
 author=PeterDelta, converted by Switz0018
