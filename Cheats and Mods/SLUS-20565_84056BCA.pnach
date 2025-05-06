@@ -1,4 +1,15 @@
-gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
+gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 90E66BC5
+//Renamed for DNAS patch.
+
+[MC Debug]
+author=Switz0018
+description=Enables Debug mode.
+//To be explored more, CON enthusiasts.
+patch=1,EE,00485AAC,extended,00000001
+
+[Debug Start Menu]
+author=Trigin
+patch=0,EE,1017FA08,extended,0000F220
 
 [Cheat Mode]
 author=Switz0018
@@ -9,6 +20,25 @@ author=Switz0018
 //Sets the "CheatMode" flag in memory
 //Partially works on old characters.
 patch=1,EE,00484540,byte,00000001
+
+[Camera Speed]
+author=Switz0018
+description=Force camera speed!
+patch=1,EE,00482146,short,00003FDF
+
+[Inventory Model Test]
+author=Switz0018
+description=Fix inventory character display for 16:9
+//position1?, rough values
+//left/right offset
+patch=1,EE,101AD2B8,extended,00004280
+//depth
+patch=1,EE,101AD2EC,extended,00004110
+//right stand left right
+patch=1,EE,101AD77C,extended,00004438
+//right stand depth
+patch=1,EE,20480588,extended,44A00000
+//add left stand
 
 [Mods\Skills\Max Rank]
 author=Switz0018
@@ -36,3 +66,70 @@ description=Force the scaling difficulty to a number.
 //Adventurous starts at "40400000"(3)
 //IS FLOAT (IEEE-754); VALUE IS FORCED
 patch=1,EE,20484CAC,extended,XXXXXXXX
+
+// These are currently being tested.
+// The following block writes to space reserved for character data regardless of game-mode.
+// During character creation you have 0 xp, so no issues. Thankfully.
+[Mods\Level-Sync\Player 1]
+author=Switz0018
+description=Copy P1 xp when they have ability points.
+//Player 1 attribute point check
+patch=1,EE,D04086F0,extended,06310000
+//Copy-paste Player 1 XP to everyone else
+//P2
+patch=1,EE,5040865C,extended,00000004
+patch=1,EE,0040E40C,extended,00000000
+//P3
+patch=1,EE,5040865C,extended,00000004
+patch=1,EE,004141BC,extended,00000000
+//P4
+patch=1,EE,5040865C,extended,00000004
+patch=1,EE,00419F6C,extended,00000000
+
+[Mods\Level-Sync\Player 2]
+author=Switz0018
+description=Copy P2 XP when they have ability points.
+//Player 2 attribute point check
+patch=1,EE,D040E4A0,extended,06310000
+//Copy-paste Player 2 XP to everyone else
+//P1
+patch=1,EE,5040E40C,extended,00000004
+patch=1,EE,0040865C,extended,00000000
+//P3
+patch=1,EE,5040E40C,extended,00000004
+patch=1,EE,004141BC,extended,00000000
+//P4
+patch=1,EE,5040E40C,extended,00000004
+patch=1,EE,00419F6C,extended,00000000
+
+[Mods\Level-Sync\Player 3]
+author=Switz0018
+description=Copy P3 XP when they have ability points.
+//Player 3 attribute point check
+patch=1,EE,D0414250,extended,06310000
+//Copy-paste Player 3 XP to everyone else
+//P1
+patch=1,EE,504141BC,extended,00000004
+patch=1,EE,0040865C,extended,00000000
+//P2
+patch=1,EE,504141BC,extended,00000004
+patch=1,EE,0040E40C,extended,00000000
+//P4
+patch=1,EE,504141BC,extended,00000004
+patch=1,EE,00419F6C,extended,00000000
+
+[Mods\Level-Sync\Player 4]
+author=Switz0018
+description=Copy P4 XP when they have ability points.
+//Player 4 attribute point check
+patch=1,EE,D041A000,extended,06310000
+//Copy-paste Player 4 XP to everyone else
+//P1
+patch=1,EE,50419F6C,extended,00000004
+patch=1,EE,0040865C,extended,00000000
+//P2
+patch=1,EE,50419F6C,extended,00000004
+patch=1,EE,0040E40C,extended,00000000
+//P3
+patch=1,EE,50419F6C,extended,00000004
+patch=1,EE,004141BC,extended,00000000
