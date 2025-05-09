@@ -1,5 +1,5 @@
 gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
-
+//DNAS patched game
 //Old, causes performance issues.
 //[No-Interlacing]
 //gsinterlacemode=1

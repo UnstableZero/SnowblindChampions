@@ -13,7 +13,7 @@ gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 90E66BC5
 //patch=1,EE,204801CC,word,3FE2FC95
 //patch=1,EE,204801D4,word,3FE2FC95
 
-//Old, causes performance issues.
+//Left in for comparison.
 //[No-Interlacing]
 //gsinterlacemode=1
 //author=Agrippa
