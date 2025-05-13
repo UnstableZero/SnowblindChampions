@@ -25,6 +25,7 @@ gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 90E66BC5
 //patch=1,EE,20190B48,extended,10000005
 //patch=1,EE,201913D8,extended,24020001
 
+//EE overclock is not needed.
 [No Interlacing]
 description=Modifies in-game instruction for interlacing.
 author=asasega
@@ -33,8 +34,8 @@ patch=1,EE,201912D8,extended,AE200008
 [Widescreen 16:9]
 gsaspectratio=16:9
 author=No.47 & Switz0018
-patch=1,EE,20480074,word,3F1A0000 // 3F3FFFFF (as per debugger)
-patch=1,EE,204800E4,word,3F1A0000 // 3F3FFFFF (as per debugger)
+patch=1,EE,20480074,word,3F1A0000 // 3F7FFFFF (as per debugger)
+patch=1,EE,204800E4,word,3F1A0000 // 3F7FFFFF (as per debugger)
 patch=1,EE,204800C4,word,3FE38E39 // 3FAA3D70 (as per debugger)
 patch=1,EE,204801B8,word,3FE38E39 // 3FAA3D70 (as per debugger)
 patch=1,EE,204801C0,word,3FE38E39 // 3FAA3D70 (as per debugger)

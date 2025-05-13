@@ -12,7 +12,7 @@ gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
 //patch=1,EE,20190B48,extended,10000005
 //patch=1,EE,201913D8,extended,24020001
 
-//New, currently untested by Switz.
+//New, works great! No overclock needed!
 [No Interlacing]
 description=Disables in-game instruction for interlacing.
 author=asasega
@@ -21,8 +21,8 @@ patch=1,EE,201912D8,extended,AE200008
 [Widescreen 16:9]
 gsaspectratio=16:9
 author=No.47 & Switz0018
-patch=1,EE,20480074,word,3F1A0000 // 3F3FFFFF (as per debugger)
-patch=1,EE,204800E4,word,3F1A0000 // 3F3FFFFF (as per debugger)
+patch=1,EE,20480074,word,3F1A0000 // 3F7FFFFF (as per debugger)
+patch=1,EE,204800E4,word,3F1A0000 // 3F7FFFFF (as per debugger)
 patch=1,EE,204800C4,word,3FE38E39 // 3FAA3D70 (as per debugger)
 patch=1,EE,204801B8,word,3FE38E39 // 3FAA3D70 (as per debugger)
 patch=1,EE,204801C0,word,3FE38E39 // 3FAA3D70 (as per debugger)
@@ -30,6 +30,7 @@ patch=1,EE,204801C8,word,3FE38E39 // 3FAA3D70 (as per debugger)
 patch=1,EE,204801CC,word,3FE38E39 // 3FAA3D70 (as per debugger)
 patch=1,EE,204801D4,word,3FE38E39 // 3FAA3D70 (as per debugger)
 
+//Less problematic with gsHWFixes, see notes on gsHWFixes.
 [Frustum View Fix]
 author=Switz0018
 description= Performance heavy. Tells the game to load more world.
@@ -38,6 +39,7 @@ patch=1,EE,206EB9BC,word,BF2B067B // BF43751F - World Right Side
 // patch=1,EE,006EB9CC,word,3F670FD6 // 3F670FD6 - World Top
 // patch=1,EE,006EB9D8,word,BF670FD6 // BF670FD6 - World Bottom
 
+//May no longer be necessary, see notes on gsHWFixes.
 [EXPERIMENTAL Aggressive Culling]
 author=Switz0018
 description=Helps heavy areas, updated to look less terrible.
@@ -49,40 +51,3 @@ patch=1,EE,006EB9C4,word,3F1644A9/3F2554A9
 patch=1,EE,006EB9D0,word,3ECC6BF1//3EDC6BF1
 //Bottom
 patch=1,EE,006EB9DC,word,3ECC6BF1//3EDC6BF1
-
-//These are largely untested, rough guesses, and could be better.
-[Widescreen/16:10]
-gsaspectratio=Stretch
-author=PeterDelta, converted by Switz0018
-//Updated to use the floats from known PAL Widescreen patches.
-patch=1,EE,20480074,word,3F2A0000
-patch=1,EE,204800E4,word,3F2A0000
-patch=1,EE,204801C0,word,3FCC0000
-patch=1,EE,204801C8,word,3FCC0000
-
-[Widescreen/15:10]
-gsaspectratio=Stretch
-author=PeterDelta, converted by Switz0018
-//Updated to use the floats from known PAL Widescreen patches.
-patch=1,EE,20480074,word,3F350000
-patch=1,EE,204800E4,word,3F350000
-patch=1,EE,204801C0,word,3FBF0000
-patch=1,EE,204801C8,word,3FBF0000
-
-[Widescreen/20:9]
-gsaspectratio=Stretch
-author=PeterDelta, converted by Switz0018
-//Updated to use the floats from known PAL Widescreen patches.
-patch=1,EE,20480074,word,3EF50000
-patch=1,EE,204800E4,word,3EF50000
-patch=1,EE,204801C0,word,400E0000
-patch=1,EE,204801C8,word,400E0000
-
-[Widescreen/21:9]
-gsaspectratio=Stretch
-author=PeterDelta, converted by Switz0018
-//Updated to use the floats from known PAL Widescreen patches.
-patch=1,EE,20480074,word,3EE90000
-patch=1,EE,204800E4,word,3EE90000
-patch=1,EE,204801C0,word,40150000
-patch=1,EE,204801C8,word,40150000

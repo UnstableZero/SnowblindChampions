@@ -1,0 +1,17 @@
+Notes on gsHWfixes: 
+    The following is my current config inside GameIndex.yaml.
+    SLUS-20565:
+  name: "Champions of Norrath"
+  region: "NTSC-U"
+  compat: 5
+  gameFixes:
+    - BlitInternalFPSHack # Fixes internal fps detection in some areas.
+  gsHWFixes:
+    estimateTextureRegion: 1 # Improves performance.
+    roundSprite: 1 # Fixes lines in menus HUD and in game.
+    halfPixelOffset: 2 # Fixes erroneous line in menus.
+    disablePartialInvalidation: 1 # Improves performance.
+
+    The PAL copies of the game use these, and an extra PCRTCOverscan that I cannot perceive a meaningful difference in.
+    Performance improvements are noticeable in Ant Hill 1, Lava Fields 1/2, and Caves of Khathuun (very meaningul).
+    Improvements seem to be so significant that using FrustumFix seems non-problematic, need lower-end testing.
