@@ -53,6 +53,11 @@ patch=1,EE,004F6B38,word,0053CC78
 patch=1,EE,004F6B48,word,0053CC88
 patch=1,EE,004F6B58,word,00557200
 
+[Intro Skip]
+author=Switz0018
+description=Skips starting videos.
+patch=1,EE,00506084,byte,00000001
+
 [Camera Speed]
 author=Switz0018
 description=Sets camera rotation speed.
