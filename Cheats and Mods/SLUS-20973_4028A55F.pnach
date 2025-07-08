@@ -3,31 +3,9 @@ gametitle=Champions: Return to Arms [SLUS_209.73]
 // Codes that modify the internal ELF for NTSC are safe for both versions.
 // They're identical, ask Ghidra. The data striping across the entire disc or .iso is different though.
 [Debug\Enable]
+//Master flag for debug inventory, vars, warp, invuln,clean up.
 author=Trigin, updated by Switz0018
 patch=1,EE,004F8EE0,extended,00000001
-//Works for Alpha build, why? How? Lizard people?
-//Can this be used to get the better debug experience in release?
-//patch=1,EE,004F9550,extended,00000001
-
-[Debug\Debug Menu]
-author=Trigin, updated by Switz0018
-patch=1,EE,10020310,extended,004DB030
-patch=1,EE,D04DB032,extended,00000040
-patch=1,EE,204DB03C,extended,00000000
-
-[Debug\Debug Inv]
-author=Trigin, updated by Switz0018
-description=24,000 lbs of stuff!
-//Enable
-patch=1,EE,C041BFE0,extended,00000800
-//P1
-patch=1,EE,1041BFE0,extended,00000803
-//P2
-//patch=1,EE,1041C038,extended,00000803
-//P3
-//patch=1,EE,1041C090,extended,00000803
-//P4
-//patch=1,EE,1041C0E8,extended,00000803
 
 [Cheats\Experience]
 author=Trigin
