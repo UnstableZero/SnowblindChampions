@@ -161,3 +161,14 @@ patch=1,EE,003FDCD4,extended,00000011
 patch=1,EE,003FDD14,extended,0000001B
 patch=1,EE,003FDD54,extended,00000020
 patch=1,EE,003FDD94,extended,00000026
+
+[Mods\Diamonds]
+author=Switz0018
+description=Patches a bit-flag that prevents diamonds from dropping.
+patch=1,EE,003FEBFA,extended,00000000
+patch=1,EE,003FEC3A,extended,00000000
+patch=1,EE,003FEC7A,extended,00000000
+patch=1,EE,003FECBA,extended,00000000
+patch=1,EE,003FECFA,extended,00000000
+patch=1,EE,003FED3A,extended,00000000
+patch=1,EE,003FED7A,extended,00000000
