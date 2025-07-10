@@ -144,3 +144,20 @@ patch=1,EE,001C2700,byte,00000050
 patch=1,EE,001C2698,byte,00000050
 patch=1,EE,001D5778,byte,00000050
 patch=1,EE,001D5418,byte,00000050
+
+[Mods\Unique Item Combining]
+author=Switz0018
+description=Disable "if" check for Uniques.
+patch=1,EE,201D0D2C,extended,144200AD
+
+[Mods\Gem Updates]
+author=Switz0018
+description=Changes the internal values of some gems.
+//Globes
+patch=1,EE,003FDC14,extended,0000001B
+patch=1,EE,003FDC54,extended,00000026
+//Whetstones.
+patch=1,EE,003FDCD4,extended,00000011
+patch=1,EE,003FDD14,extended,0000001B
+patch=1,EE,003FDD54,extended,00000020
+patch=1,EE,003FDD94,extended,00000026
