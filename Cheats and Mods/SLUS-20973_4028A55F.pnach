@@ -172,3 +172,16 @@ patch=1,EE,003FECBA,extended,00000000
 patch=1,EE,003FECFA,extended,00000000
 patch=1,EE,003FED3A,extended,00000000
 patch=1,EE,003FED7A,extended,00000000
+
+[Difficulty Scaling Changes]
+author=Switz0018
+description=Scale the game a little more aggressively.
+//Old scaler was 0.75 for all.
+//Cour, 1.0
+patch=1,EE,101E5BCC,extended,00003F80
+//Champ, 1.25
+patch=1,EE,101E5BF0,extended,00003FA0
+//Lege, 1.5
+patch=1,EE,101E5C18,extended,00003FC0
+//Epic, 1.75
+patch=1,EE,101E5C30,extended,00003FE0
