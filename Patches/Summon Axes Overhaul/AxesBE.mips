@@ -1,0 +1,171 @@
+#this is the assembly for the original function, with comments for optimization
+   002fe96c e0 ff bd 27     addiu   sp,sp,-0x20          
+   002fe970 ff ff 03 24     li      v1,-0x1            
+   002fe974 05 00 a2 28     slti    v0,a1,0x5          
+   002fe978 00 00 b0 ff     sd      s0,0x0(sp)            
+   002fe97c 08 00 b1 ff     sd      s1,local_18(sp)           
+   002fe980 0b 18 07 00     movn    v1,zero,a3           
+   002fe984 10 00 bf ff     sd      ra,local_10(sp)
+#if we set a0 to 0x55 here, we don't have to do it five times
+#if we set a2 to v1 here, we don't have to do it five times
+#if we set a3 to zero here, we don't have to do it five times
+#that's 12 instructions saved
+#with 12 to 16 instructions saved, it should be possible to read player level
+#do some math on it to get a damage value
+#as well as prepare to pass the player level to the item creation function
+#then do checks for spell rank (v0)
+#set a0 to the correct item name
+#branch out and set s1 with the delay slot
+#create a new jal to create__4item
+#jal to create the item with a nop?
+#return to the copy subroutine
+   002fe988 0a 00 40 10     beq     v0,zero,LAB_002fe9b4#the first time we check v0
+   002fe98c 2d 80 c0 00     move    s0,a2#for what reason do we not use this to set a1? if we are setting s0 to a2, and then a1 to s0, why not just set a1 to a2?
+   002fe990 55 00 04 3c     lui     a0,0x55#first time we set a0 to 0x55           
+   002fe994 2d 30 60 00     move    a2,v1#the first time we set a2 to v1
+   002fe998 20 15 84 24     addiu   a0=>"sumthrowingaxe"
+   002fe99c 2d 28 00 02     move    a1,s0#the first time we set a1 to s0
+   002fe9a0 2d 38 00 00     move    a3,zero#the first time we set a3 to zero           
+   002fe9a4 6e 1a 04 0c     jal     create__4item
+   002fe9a8 05 00 11 24     li      s1,0x5#level required for the first axe
+   002fe9ac 2a 00 00 10     b       LAB_002fea58#jump to copy subroutine
+   002fe9b0 25 00 0a 24     li      t2,0x25#the first time we set t2 to 0x25
+#                    LAB_002fe9b4                      XREF[1]: 002fe988(j)  
+   002fe9b4 09 00 a2 28     slti    v0,a1,0x9           
+   002fe9b8 0a 00 40 50     beql    v0,zero,LAB_002fe9e4#the second time we check v0
+   002fe9bc 0d 00 a2 28     slti    v0,a1,0xd            
+   002fe9c0 55 00 04 3c     lui     a0,0x55#second time we set a0 to 0x55
+   002fe9c4 2d 30 60 00     move    a2,v1#the second time we set a2 to v1
+   002fe9c8 30 15 84 24     addiu   a0=>"sumlightthrowingaxe"
+   002fe9cc 2d 28 00 02     move    a1,s0#the second time we set a1 to s0
+   002fe9d0 2d 38 00 00     move    a3,zero#the second time we set a3 to zero
+   002fe9d4 6e 1a 04 0c     jal     create__4item
+   002fe9d8 09 00 11 24     li      s1,0x9#level required for the second axe
+   002fe9dc 1e 00 00 10     b       LAB_002fea58#jump to copy subroutine
+   002fe9e0 25 00 0a 24     li      t2,0x25#the second time we set t2 to 0x25
+#                    LAB_002fe9e4                      XREF[1]: 002fe9
+   002fe9e4 0a 00 40 50     beql    v0,zero,LAB_002fea10#the third time we check v0
+   002fe9e8 11 00 a2 28     slti    v0,a1,0x11
+   002fe9ec 55 00 04 3c     lui     a0,0x55#third time we set a0 to 0x55
+   002fe9f0 2d 30 60 00     move    a2,v1#the third time we set a2 to v1
+   002fe9f4 48 15 84 24     addiu   a0=>"sumnormalthrowingaxe"
+   002fe9f8 2d 28 00 02     move    a1,s0#the third time we set a1 to s0
+   002fe9fc 2d 38 00 00     move    a3,zero#the third time we set a3 to zero
+   002fea00 6e 1a 04 0c     jal     create__4item
+   002fea04 0d 00 11 24     li      s1,0xd#level required for the third axe
+   002fea08 13 00 00 10     b       LAB_002fea58#jump to copy subroutine
+   002fea0c 25 00 0a 24     li      t2,0x25#the third time we set t2 to 0x25
+#                    LAB_002fea10                      XREF[1]: 002fe9e4(j)
+   002fea10 0a 00 40 10     beq     v0,zero,LAB_002fea3c#the fourth time we check v0
+   002fea14 55 00 04 3c     lui     a0,0x55#fourth time we set a0 to 0x55, but for fifth axes
+   002fea18 55 00 04 3c     lui     a0,0x55#fifth time we set a0 to 0x55, but as a duplicate for fourth axes
+   002fea1c 2d 30 60 00     move    a2,v1#the fourth time we set a2 to v1
+   002fea20 60 15 84 24     addiu   a0=>"sumwarthrowingaxe"
+   002fea24 2d 28 00 02     move    a1,s0#the fourth time we set a1 to s0
+   002fea28 2d 38 00 00     move    a3,zero#the fourth time we set a3 to zero
+   002fea2c 6e 1a 04 0c     jal     create__4item
+   002fea30 11 00 11 24     li      s1,0x11#level required for the fourth axe
+   002fea34 08 00 00 10     b       LAB_002fea58#jump to copy subroutine
+   002fea38 25 00 0a 24     li      t2,0x25#the fourth time we set t2 to 0x25
+                    LAB_002fea3c                      XREF[1]: 002fea10(j)
+   002fea3c 2d 30 60 00     move    a2,v1#the fifth time we set a2 to v1
+   002fea40 78 15 84 24     addiu   a0=>"sumgreatthrowingaxe"
+   002fea44 2d 28 00 02     move    a1,s0#the fifth time we set a1 to s0
+   002fea48 2d 38 00 00     move    a3,zero#the fifth time we set a3 to zero
+   002fea4c 6e 1a 04 0c     jal     create__4item
+   002fea50 15 00 11 24     li      s1,0x15#level required for the fifth axe
+   002fea54 25 00 0a 24     li      t2,0x25#the fifth time we set t2 to 0x25
+#if we jal once instead of each axe summon, that's 4 instructions saved
+#20 instructions saved in total
+#if we can set t2 to 0x25 once, and use the branch delay slot to set something else, that's 4 more instructions saved
+#this subroutine copies the item to the player's inventory
+#                    LAB_002fea58                      XREF[4]: 002fe9ac(j), 002fe9dc(j), 002fea08(j), 002fea34(j)
+   002fea58 01 00 0b 24     li      t3,0x1
+   002fea5c 2d 30 00 00     move    a2,zero
+   002fea60 c0 28 06 00     sll     a1,a2,0x3        
+#                    LAB_002fea64                      XREF[1]: 002feab0(j)  
+   002fea64 01 00 c6 24     addiu   a2,a2,0x1            
+   002fea68 20 00 a8 24     addiu   t0,a1,0x20            
+   002fea6c 04 00 09 26     addiu   t1,s0,0x4            
+   002fea70 21 38 28 01     addu    a3,t1,t0            
+   002fea74 ff ff 02 24     li      v0,-0x1            
+   002fea78 00 00 e3 84     lh      v1,0x0(a3)            
+   002fea7c 03 00 62 10     beq     v1,v0,LAB_002fea8c            
+   002fea80 04 00 c4 28     slti    a0,a2,0x4            
+   002fea84 0a 00 6a 14     bne     v1,t2,LAB_002feab0            
+   002fea88 00 00 00 00     nop            
+#                    LAB_002fea8c                      XREF[1]: 002fea7c(j)  
+   002fea8c 06 00 02 26     addiu   v0,s0,0x6           
+   002fea90 00 00 ea a4     sh      t2,0x0(a3)           
+   002fea94 21 20 a2 00     addu    a0,a1,v0            
+   002fea98 21 18 48 00     addu    v1,v0,t0            
+   002fea9c 2d 10 80 00     move    v0,a0
+   002feaa0 00 00 6b a4     sh      t3,0x0(v1)
+   002feaa4 22 00 40 a4     sh      zero,0x22(v0)
+   002feaa8 03 00 00 10     b       LAB_002feab8           
+   002feaac 24 00 80 a4     sh      zero,0x24(a0)           
+#                    LAB_002feab0                      XREF[1]: 002fea84(j)  
+   002feab0 ec ff 80 14     bne     a0,zero,LAB_002fea64            
+   002feab4 c0 28 06 00     sll     a1,a2,0x3           
+#                    LAB_002feab8                      XREF[1]: 002feaa8(j)  
+   002feab8 24 00 0a 24     li      t2,0x24#this gets patched to 0x23 to use the better axe damage
+   002feabc 0a 00 0b 24     li      t3,0xa#this will be replaced with a new register and value, hardsetting damage is bad.
+   002feac0 2d 30 00 00     move    a2,zero
+   002feac4 c0 28 06 00     sll     a1,a2,0x3
+#                    LAB_002feac8                      XREF[1]: 002feb10(j)  
+   002feac8 01 00 c6 24     addiu   a2,a2,0x1            
+   002feacc 20 00 a8 24     addiu   t0,a1,0x20
+   002fead0 ff ff 02 24     li      v0,-0x1           
+   002fead4 21 20 28 01     addu    a0,t1,t0            
+   002fead8 00 00 83 84     lh      v1,0x0(a0)           
+   002feadc 03 00 62 10     beq     v1,v0,LAB_002feaec            
+   002feae0 04 00 c7 28     slti    a3,a2,0x4            
+   002feae4 0a 00 6a 14     bne     v1,t2,LAB_002feb10            
+   002feae8 00 00 00 00     nop            
+#                    LAB_002feaec                      XREF[1]: 002feadc(j)  
+   002feaec 06 00 02 26     addiu   v0,s0,0x6            
+   002feaf0 00 00 8a a4     sh      t2,0x0(a0)           
+   002feaf4 21 20 a2 00     addu    a0,a1,v0           
+   002feaf8 21 18 48 00     addu    v1,v0,t0
+   002feafc 2d 10 80 00     move    v0,a0
+   002feb00 00 00 6b a4     sh      t3,0x0(v1)
+   002feb04 22 00 40 a4     sh      zero,0x22(v0)
+   002feb08 03 00 00 10     b       LAB_002feb18
+   002feb0c 24 00 80 a4     sh      zero,0x24(a0)           
+#                    LAB_002feb10                      XREF[1]: 002feae4(j)  
+   002feb10 ed ff e0 14     bne     a3,zero,LAB_002feac8
+   002feb14 c0 28 06 00     sll     a1,a2,0x3
+#                    LAB_002feb18                      XREF[1]: 002feb08(j)  
+   002feb18 0e 00 0a 24     li      t2,0xe
+   002feb1c 2d 30 00 00     move    a2,zero
+   002feb20 c0 28 06 00     sll     a1,a2,0x3
+#                    LAB_002feb24                      XREF[1]: 002feb6c(j)  
+   002feb24 01 00 c6 24     addiu   a2,a2,0x1
+#            
+   002feb28 20 00 a8 24     addiu   t0,a1,0x20
+   002feb2c ff ff 02 24     li      v0,-0x1
+   002feb30 21 20 28 01     addu    a0,t1,t0
+   002feb34 00 00 83 84     lh      v1,0x0(a0)
+   002feb38 03 00 62 10     beq     v1,v0,LAB_002feb48
+   002feb3c 04 00 c7 28     slti    a3,a2,0x4
+   002feb40 0a 00 6a 14     bne     v1,t2,LAB_002feb6c
+   002feb44 00 00 00 00     nop
+#                    LAB_002feb48                      XREF[1]: 002feb38(j)  
+   002feb48 06 00 02 26     addiu   v0,s0,0x6
+   002feb4c 00 00 8a a4     sh      t2,0x0(a0)
+   002feb50 21 20 a2 00     addu    a0,a1,v0
+   002feb54 21 18 48 00     addu    v1,v0,t0
+   002feb58 2d 10 80 00     move    v0,a0            
+   002feb5c 00 00 71 a4     sh      s1,0x0(v1)           
+   002feb60 22 00 40 a4     sh      zero,0x22(v0)
+   002feb64 03 00 00 10     b       LAB_002feb74
+   002feb68 24 00 80 a4     sh      zero,0x24(a0)
+#                    LAB_002feb6c                      XREF[1]: 002feb40(j)  
+   002feb6c ed ff e0 14     bne     a3,zero,LAB_002feb24
+   002feb70 c0 28 06 00     sll     a1,a2,0x3
+#                    LAB_002feb74                      XREF[1]: 002feb64(j)  
+   002feb74 00 00 b0 df     ld      s0,0x0(sp)=>local_20
+   002feb78 08 00 b1 df     ld      s1,local_18(sp)
+   002feb7c 10 00 bf df     ld      ra,local_10(sp)
+   002feb80 08 00 e0 03     jr      ra
+   002feb84 20 00 bd 27     addiu   sp,sp,0x20
