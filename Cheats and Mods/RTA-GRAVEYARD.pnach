@@ -63,3 +63,18 @@ patch=1,EE,001B1AE0,byte,00000000
 patch=1,EE,001B1B64,byte,00000000
 patch=1,EE,001B1B80,byte,00000000
 patch=1,EE,001B1BA4,byte,00000000
+
+//Don't need to force this value, I have control over all the scaling now.
+[Mods\World Difficulty]
+author=Switz0018
+//Multiplier used to calculate ALL
+//Creature stats, Boss stats, and loot all use this!
+//Is constantly changed throughout the game.
+//Adventurous starts at "40400000"(3)
+//Courageous starts at "42110000"(36.25)
+//Champion starts at "427D0000"(63.25)
+//Legendary starts at "42B48000"(90.25)
+//Epic starts at "42EA8000"(117.25)
+//Twisted Nightmare is "430E0000"(142)
+//IS FLOAT; VALUE IS FORCED
+patch=1,EE,204F714C,extended,43160000
