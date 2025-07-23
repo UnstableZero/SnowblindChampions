@@ -1,3 +1,4 @@
+//No longer maintained, hardmode will be balanced around HP/MP Bonus fix from now on.
 //This is a collection of codes used to calculate various stats.
 //These settings are to make the game harder, with a subjective view on "balance".
 [Mods\Stats\Creation Start Points]
