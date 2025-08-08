@@ -71,24 +71,24 @@
    002fea54 00 06 28 c0    sll     a1,a2,0x3
 #                       LAB_002fea58
 #custom code added to set an axe damage value based on player level to keep them relevant
-   002fea58 3C 0B 00 4E    lui     t3,0x004E
-   002fea5c 25 6B 8b 48    addiu   t3,t3,-0x74B8
-   002fea60 81 6F 00 00    lb      t7,0x0(t3)
-   002fea64 44 8F A8 00    mtc1    t7,f21
-   002fea68 46 80 ad 60    cvt.s.w f21,f21#lvl
-   002fea6c 3C 01 3F C0    lui     at,0x3FC0#1.5
-   002fea70 44 81 B0 00    mtc1    at,f22
-   002fea74 3C 01 3F 00    lui     at,0x3F00#0.5
-   002fea78 44 81 B8 00    mtc1    at,f23
-   002fea7c 3C 01 40 92    lui     at,0x4092
-   002fea80 34 21 21 66    ori     at,at,0x2166
-   002fea84 44 81 C0 00    mtc1    at,f24#dmg mult
-   002fea88 46 16 AD 42    mul.s   f21,f21,f22
-   002fea8c 46 17 AD 42    mul.s   f21,f21,f23
-   002fea90 46 18 AE 02    mul.s   f24,f21,f24
-   002fea94 46 00 C6 24    cvt.w.s f24,f24
-   002fea98 44 0B C0 00    mfc1    t3,f24#((1.5*lvl)*0.5)*mult=axedmg, allows for extra tuning
-   002fea9c 24 0a 00 23    li      t2,0x23
+   002fea58 82 EF 00 59    lb      t7,0x59(s7)#load player level, s7 contains the address for the casting player's name
+   002fea5c 44 8F A8 00    mtc1    t7,f21
+   002fea60 46 80 ad 60    cvt.s.w f21,f21#lvl
+   002fea64 3C 01 3F C0    lui     at,0x3FC0#1.5
+   002fea68 44 81 B0 00    mtc1    at,f22
+   002fea6c 3C 01 3F 00    lui     at,0x3F00#0.5
+   002fea70 44 81 B8 00    mtc1    at,f23
+   002fea74 3C 01 40 92    lui     at,0x4092
+   002fea78 34 21 21 66    ori     at,at,0x2166
+   002fea7c 44 81 C0 00    mtc1    at,f24#dmg mult
+   002fea80 46 16 AD 42    mul.s   f21,f21,f22
+   002fea84 46 17 AD 42    mul.s   f21,f21,f23
+   002fea88 46 18 AE 02    mul.s   f24,f21,f24
+   002fea8c 46 00 C6 24    cvt.w.s f24,f24
+   002fea90 44 0B C0 00    mfc1    t3,f24#((1.5*lvl)*0.5)*mult=axedmg, allows for extra tuning
+   002fea94 24 0a 00 23    li      t2,0x23
+   002fea98 00 00 00 00    nop
+   002fea9c 00 00 00 00    nop
    002feaa0 00 00 00 00    nop
    002feaa4 00 00 00 00    nop
    002feaa8 00 00 00 00    nop

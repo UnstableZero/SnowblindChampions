@@ -22,20 +22,20 @@ patch=1,EE,201912D8,extended,AE200008
 [Widescreen 16:9]
 gsaspectratio=16:9
 author=No.47 & Switz0018
-patch=1,EE,20480074,word,3F1A0000 // 3F7FFFFF (as per debugger)
-patch=1,EE,204800E4,word,3F1A0000 // 3F7FFFFF (as per debugger)
-patch=1,EE,204800C4,word,3FE38E39 // 3FAA3D70 (as per debugger)
-patch=1,EE,204801B8,word,3FE38E39 // 3FAA3D70 (as per debugger)
-patch=1,EE,204801C0,word,3FE38E39 // 3FAA3D70 (as per debugger)
-patch=1,EE,204801C8,word,3FE38E39 // 3FAA3D70 (as per debugger)
-patch=1,EE,204801CC,word,3FE38E39 // 3FAA3D70 (as per debugger)
-patch=1,EE,204801D4,word,3FE38E39 // 3FAA3D70 (as per debugger)
+patch=1,EE,00480074,word,3F1A0000 // 3F7FFFFF (as per debugger)
+patch=1,EE,004800E4,word,3F1A0000 // 3F7FFFFF (as per debugger)
+patch=1,EE,004800C4,word,3FE38E39 // 3FAA3D70 (as per debugger)
+patch=1,EE,004801B8,word,3FE38E39 // 3FAA3D70 (as per debugger)
+patch=1,EE,004801C0,word,3FE38E39 // 3FAA3D70 (as per debugger)
+patch=1,EE,004801C8,word,3FE38E39 // 3FAA3D70 (as per debugger)
+patch=1,EE,004801CC,word,3FE38E39 // 3FAA3D70 (as per debugger)
+patch=1,EE,004801D4,word,3FE38E39 // 3FAA3D70 (as per debugger)
 
 [Frustum View Fix]
 author=Switz0018
 description= Performance heavy. Tells the game to load more world.
-patch=1,EE,206EB9B0,word,3F2B067B // 3F43751F - World Left Side
-patch=1,EE,206EB9BC,word,BF2B067B // BF43751F - World Right Side
+patch=1,EE,006EB9B0,word,3F2B067B // 3F43751F - World Left Side
+patch=1,EE,006EB9BC,word,BF2B067B // BF43751F - World Right Side
 // patch=1,EE,006EB9CC,word,3F670FD6 // 3F670FD6 - World Top
 // patch=1,EE,006EB9D8,word,BF670FD6 // BF670FD6 - World Bottom
 
