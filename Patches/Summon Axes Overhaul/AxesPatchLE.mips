@@ -1,4 +1,4 @@
-#this file is Litle Endian(LE) until it is marked (BE) for Big Endian.
+#this file is Litle Endian
    002fe96c 27 bd ff e0    addiu   sp,sp,-0x20          
    002fe970 24 03 ff ff    addiu   v1,zero,-0x1            
    002fe974 28 a2 00 05    slti    v0,a1,0x5          
@@ -10,31 +10,31 @@
    002fe98c 00 c0 80 2d    daddu   s0,a2,zero#move a2 to s0, so we can use it later
    002fe990 00 60 30 2d    daddu   a2,v1,zero#if we set a2 to v1 here, we don't have to do it five times
    002fe994 00 00 38 2d    daddu   a3,zero,zero#if we set a3 to zero here, we don't have to do it five times
-#LE required level has to affect on the damge of the summoned axes,use the extra space to caclulate a better damager number.
+#   required level has to affect on the damge of the summoned axes,use the extra space to caclulate a better damager number.
    002fe998 10 40 00 04    beq     v0,zero,LAB_002fe9ac#the first time we check v0
    002fe99c 28 a2 00 09    slti    v0,a1,0x9  
    002fe9a0 24 84 15 20    addiu   a0=>"sumthrowingaxe"     
-   002fe9a4 10 00 00 11    b       LAB_002fe9ec#jump to copy subroutine 
+   002fe9a4 10 00 00 11    b       LAB_002fe9ec#jump to create item 
    002fe9a8 24 11 00 05    li      s1,0x5#level required for the first axe  
-#LE                    LAB_002fe9ac         
+#                      LAB_002fe9ac         
    002fe9ac 50 40 00 04    beql    v0,zero,LAB_002fe9c0#the second time we check v0
    002fe9b0 28 a2 00 0d    slti    v0,a1,0xd            
    002fe9b4 24 84 15 30    addiu   a0=>"sumlightthrowingaxe"
-   002fe9b8 10 00 00 0c    b       LAB_002fe9ec#jump to copy subroutine
+   002fe9b8 10 00 00 0c    b       LAB_002fe9ec#jump to create item
    002fe9bc 24 11 00 09    li      s1,0x9#level required for the second axe
-#LE                    LAB_002fe9c0
+#                      LAB_002fe9c0
    002fe9c0 50 40 00 04    beql    v0,zero,LAB_002fe9d4#the third time we check v0
    002fe9c4 28 a2 00 11    slti    v0,a1,0x11
    002fe9c8 24 84 15 48    addiu   a0=>"sumnormalthrowingaxe"
-   002fe9cc 10 00 00 07    b       LAB_002fe9ec#jump to copy subroutine
+   002fe9cc 10 00 00 07    b       LAB_002fe9ec#jump to create item
    002fe9d0 24 11 00 0d    li      s1,0xd#level required for the third axe 
-#LE                    LAB_002fe9d4
+#                      LAB_002fe9d4
    002fe9d4 10 40 00 04    beq     v0,zero,LAB_002fe9e8#the fourth time we check v0
    002fe9d8 24 11 00 15    li      s1,0x15#level required for the fifth axe
    002fe9dc 24 84 15 60    addiu   a0=>"sumwarthrowingaxe"
-   002fe9e0 10 00 00 03    b       LAB_002fe9ec#jump to copy subroutine
+   002fe9e0 10 00 00 02    b       LAB_002fe9ec#jump to create item
    002fe9e4 24 11 00 11    li      s1,0x11#level required for the fourth axe
-#LE                    LAB_002fe9e8
+#                      LAB_002fe9e8
    002fe9e8 24 84 15 78    addiu   a0=>"sumgreatthrowingaxe"
    002fe9ec 0c 04 1a 6e    jal     create__4item#if we jal once instead of each axe summon, that's 4 more instructions saved, for 16
    002fe9f0 02 00 28 2d    daddu   a1,s0,zero#set a1 to s0 to pass the stack pointer, setting a1 in the delay slot saves us another 4 for 20
@@ -87,73 +87,72 @@
    002fea8c 46 00 C6 24    cvt.w.s f24,f24
    002fea90 44 0B C0 00    mfc1    t3,f24#((1.5*lvl)*0.5)*mult=axedmg, allows for extra tuning
    002fea94 24 0a 00 23    li      t2,0x23
-   002fea98 00 00 00 00    nop
-   002fea9c 00 00 00 00    nop
-   002feaa0 00 00 00 00    nop
-   002feaa4 00 00 00 00    nop
-   002feaa8 00 00 00 00    nop
-   002feaac 00 00 00 00    nop
-   002feab0 00 00 00 00    nop
-   002feab4 00 00 00 00    nop
-   002feab8 00 00 00 00    nop
-   002feabc 00 00 00 00    nop
-#BE Old code, untouched.
-   002feac0 2d 30 00 00     move    a2,zero
-   002feac4 c0 28 06 00     sll     a1,a2,0x3
-#                    LAB_002feac8                      XREF[1]: 002feb10(j)  
-   002feac8 01 00 c6 24     addiu   a2,a2,0x1            
-   002feacc 20 00 a8 24     addiu   t0,a1,0x20
-   002fead0 ff ff 02 24     li      v0,-0x1           
-   002fead4 21 20 28 01     addu    a0,t1,t0            
-   002fead8 00 00 83 84     lh      v1,0x0(a0)           
-   002feadc 03 00 62 10     beq     v1,v0,LAB_002feaec            
-   002feae0 04 00 c7 28     slti    a3,a2,0x4            
-   002feae4 0a 00 6a 14     bne     v1,t2,LAB_002feb10            
-   002feae8 00 00 00 00     nop            
-#                    LAB_002feaec                      XREF[1]: 002feadc(j)  
-   002feaec 06 00 02 26     addiu   v0,s0,0x6            
-   002feaf0 00 00 8a a4     sh      t2,0x0(a0)           
-   002feaf4 21 20 a2 00     addu    a0,a1,v0           
-   002feaf8 21 18 48 00     addu    v1,v0,t0
-   002feafc 2d 10 80 00     move    v0,a0
-   002feb00 00 00 6b a4     sh      t3,0x0(v1)
-   002feb04 22 00 40 a4     sh      zero,0x22(v0)
-   002feb08 03 00 00 10     b       LAB_002feb18
-   002feb0c 24 00 80 a4     sh      zero,0x24(a0)           
-#                    LAB_002feb10                      XREF[1]: 002feae4(j)  
-   002feb10 ed ff e0 14     bne     a3,zero,LAB_002feac8
-   002feb14 c0 28 06 00     sll     a1,a2,0x3
-#                    LAB_002feb18                      XREF[1]: 002feb08(j)  
-   002feb18 0e 00 0a 24     li      t2,0xe
-   002feb1c 2d 30 00 00     move    a2,zero
-   002feb20 c0 28 06 00     sll     a1,a2,0x3
-#                    LAB_002feb24                      XREF[1]: 002feb6c(j)  
-   002feb24 01 00 c6 24     addiu   a2,a2,0x1
-#            
-   002feb28 20 00 a8 24     addiu   t0,a1,0x20
-   002feb2c ff ff 02 24     li      v0,-0x1
-   002feb30 21 20 28 01     addu    a0,t1,t0
-   002feb34 00 00 83 84     lh      v1,0x0(a0)
-   002feb38 03 00 62 10     beq     v1,v0,LAB_002feb48
-   002feb3c 04 00 c7 28     slti    a3,a2,0x4
-   002feb40 0a 00 6a 14     bne     v1,t2,LAB_002feb6c
-   002feb44 00 00 00 00     nop
-#                    LAB_002feb48                      XREF[1]: 002feb38(j)  
-   002feb48 06 00 02 26     addiu   v0,s0,0x6
-   002feb4c 00 00 8a a4     sh      t2,0x0(a0)
-   002feb50 21 20 a2 00     addu    a0,a1,v0
-   002feb54 21 18 48 00     addu    v1,v0,t0
-   002feb58 2d 10 80 00     move    v0,a0            
-   002feb5c 00 00 71 a4     sh      s1,0x0(v1)           
-   002feb60 22 00 40 a4     sh      zero,0x22(v0)
-   002feb64 03 00 00 10     b       LAB_002feb74
-   002feb68 24 00 80 a4     sh      zero,0x24(a0)
-#                    LAB_002feb6c                      XREF[1]: 002feb40(j)  
-   002feb6c ed ff e0 14     bne     a3,zero,LAB_002feb24
-   002feb70 c0 28 06 00     sll     a1,a2,0x3
-#                    LAB_002feb74                      XREF[1]: 002feb64(j)  
-   002feb74 00 00 b0 df     ld      s0,0x0(sp)=>local_20
-   002feb78 08 00 b1 df     ld      s1,local_18(sp)
-   002feb7c 10 00 bf df     ld      ra,local_10(sp)
-   002feb80 08 00 e0 03     jr      ra
-   002feb84 20 00 bd 27     addiu   sp,sp,0x20
+   002fea98 00 00 30 2D    move    param_3,zero#old code continues here
+   002fea9c 00 06 28 c0    sll     param_2,param_3,0x3
+#                       LAB_002feaa0
+   002feaa0 24 c6 00 01     addiu  param_3,param_3,0x1
+   002feaa4 24 a8 00 20     addiu  t0,param_2,0x20
+   002feaa8 24 02 ff ff     li     v0,-0x1
+   002feaac 01 28 20 21     addu   param_1,t1,t0
+   002feab0 84 83 00 00     lh     v1,0x0(param_1)
+   002feab4 10 62 00 03     beq    v1,v0,LAB_002feaec
+   002feab8 28 c7 00 04     _slti  param_4,param_3,0x4
+   002feabc 14 6a 00 0a     bne    v1,t2,LAB_002feb10
+   002feac0 00 00 00 00     _nop
+#                       LAB_002feac4
+   002feac4 26 02 00 06     addiu  v0,s0,0x6
+   002feac8 a4 8a 00 00     sh     t2,0x0(param_1)
+   002feacc 00 a2 20 21     addu   param_1,param_2,v0
+   002fead0 00 48 18 21     addu   v1,v0,t0
+   002fead4 00 80 10 2d     move   v0,param_1
+   002fead8 a4 6b 00 00     sh     t3,0x0(v1)
+   002feadc a4 40 00 22     sh     zero,0x22(v0)
+   002feae0 10 00 00 03     b      LAB_002feb18
+   002feae4 a4 80 00 24     _sh    zero,0x24(param_1)
+#                       LAB_002feae8
+   002feae8 14 e0 ff ed     bne    param_4,zero,LAB_002feac8
+   002feaec 00 06 28 c0     _sll   param_2,param_3,0x3
+#                       LAB_002feaf0
+   002feaf0 24 0a 00 0e     li     t2,0xe
+   002feaf4 00 00 30 2d     move   param_3,zero
+   002feaf8 00 06 28 c0     sll    param_2,param_3,0x3
+#                       LAB_002feafc
+   002feafc 24 c6 00 01     addiu  param_3,param_3,0x1
+   002feb00 24 a8 00 20     addiu  t0,param_2,0x20
+   002feb04 24 02 ff ff     li     v0,-0x1
+   002feb08 01 28 20 21     addu   param_1,t1,t0
+   002feb0c 84 83 00 00     lh     v1,0x0(param_1)
+   002feb10 10 62 00 03     beq    v1,v0,LAB_002feb48
+   002feb14 28 c7 00 04     _slti  param_4,param_3,0x4
+   002feb18 14 6a 00 0a     bne    v1,t2,LAB_002feb6c
+   002feb1c 00 00 00 00     _nop
+#                       LAB_002feb20
+   002feb20 26 02 00 06     addiu  v0,s0,0x6
+   002feb24 a4 8a 00 00     sh     t2,0x0(param_1)
+   002feb28 00 a2 20 21     addu   param_1,param_2,v0
+   002feb2c 00 48 18 21     addu   v1,v0,t0
+   002feb30 00 80 10 2d     move   v0,param_1
+   002feb34 a4 71 00 00     sh     s1,0x0(v1)
+   002feb38 a4 40 00 22     sh     zero,0x22(v0)
+   002feb3c 10 00 00 03     b      LAB_002feb74
+   002feb40 a4 80 00 24     _sh    zero,0x24(param_1)
+#                       LAB_002feb44
+   002feb44 14 e0 ff ed     bne    param_4,zero,LAB_002feb24
+   002feb48 00 06 28 c0     _sll   param_2,param_3,0x3
+#                       LAB_002feb4c
+   002feb4c df b0 00 00     ld     s0,0x0(sp)
+   002feb50 df b1 00 08     ld     s1,0x8(sp)
+   002feb54 df bf 00 10     ld     ra,0x10(sp)
+   002feb58 03 e0 00 08     jr     ra
+   002feb5c 27 bd 00 20     _addiu sp,sp,0x20
+#final savings after adding scaling code is 10 instructions
+   002feb60 00 00 00 00     nop
+   002feb64 00 00 00 00     nop
+   002feb68 00 00 00 00     nop
+   002feb6c 00 00 00 00     nop
+   002feb70 00 00 00 00     nop
+   002feb74 00 00 00 00     nop
+   002feb78 00 00 00 00     nop
+   002feb7c 00 00 00 00     nop
+   002feb80 00 00 00 00     nop
+   002feb84 00 00 00 00     nop
