@@ -1,3 +1,6 @@
+# This code used to load the individual level bytes 
+# add 1 to them, and same them individually
+#
   001bd568 00 00 00 00     nop
   001bd56c 00 00 00 00     nop
   001bd570 00 00 00 00     nop
@@ -6,3 +9,14 @@
   001bd57c 00 00 00 00     nop
   001bd580 00 00 00 00     nop
   001bd584 00 00 00 00     nop
+# experimental attempt to add the lost attribute points and set level to 51
+# game overwrites when importing everything else
+# save for the future, as a patch this big is still probably within scope.
+# 8E020058 lw v0,0x58(s0)
+# 24420101 addiu v0,v0,0x101
+# FE020058 sd v0,0x58(s0)
+# AE04005C sw a0,0x5C(s0)
+# 24030003 addiu v1,zero,0x3
+# A20300EC sb v1,0xEC(s0)
+# 00000000 nop 
+# 00000000 nop 
