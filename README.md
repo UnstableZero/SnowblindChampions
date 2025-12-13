@@ -1,7 +1,6 @@
 # SnowblindChampions
-Collection of patches for "Champions of Norrath" and "Champions: Return to Arms" 
-
-- Includes but not limited to:
+Collection of patches for "Champions of Norrath" and "Champions: Return to Arms"  
+Includes but not limited to:
 - RTA Epic Difficulty Menu
 - RTA HP/MP Bonus Fix
 - RTA Lvl 50 CON Import Fix
