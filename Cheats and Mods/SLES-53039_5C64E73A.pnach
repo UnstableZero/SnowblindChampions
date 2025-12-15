@@ -1,4 +1,14 @@
 gametitle=Champions: Return to Arms [SLES_30.39]
+[Debug Mode]
+author=Contested
+description=Enables Debug Mode!
+patch=1,EE,004FA7E0,extended,00000001
+
+[SkipIntro]
+author=Switz0018
+description=Skips the SOE and Snowblind Logos
+patch=1,EE,0050825c,extended,00000001
+
 [Epic Menu EN]
 author=Switz0018
 description=Epic Menu for PAL EN
