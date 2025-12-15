@@ -1,10 +1,13 @@
 gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 90E66BC5
 
 //EE overclock is not needed.
-[No Interlacing]
-description=Modifies in-game instruction for interlacing.
-author=asasega
-patch=1,EE,201912D8,extended,AE200008
+[No-Interlacing]
+author=Switz0018
+description=Looks great at 2x resolution!
+patch=1,EE,001912CC,extended,0000102D // Eliminate reading vBlankField
+patch=1,EE,204843E0,extended,00000001 // Tripple-buffering
+patch=1,EE,204843E4,extended,00000000 // Progressive 30FPS mode
+patch=1,EE,20484474,extended,00000001 // FullFrameMode
 
 [Widescreen 16:9]
 gsaspectratio=16:9
