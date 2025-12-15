@@ -1,7 +1,6 @@
 gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
 //DNAS patched game
 //Old, causes performance issues.
-//Test with new performance updates from PCSX2GameIndex updates.
 //[No-Interlacing]
 //gsinterlacemode=1
 //author=Agrippa
@@ -12,12 +11,19 @@ gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
 //patch=1,EE,20190AE4,extended,10000010
 //patch=1,EE,20190B48,extended,10000005
 //patch=1,EE,201913D8,extended,24020001
+//Worked great, left something to be desired.
+//[No Interlacing]
+//description=Disables in-game instruction for interlacing.
+//author=asasega
+//patch=1,EE,201912D8,extended,AE200008
 
-//New, works great! No overclock needed!
-[No Interlacing]
-description=Disables in-game instruction for interlacing.
-author=asasega
-patch=1,EE,201912D8,extended,AE200008
+[No-Interlacing]
+author=Switz0018
+description=Looks great at 2x resolution!
+patch=1,EE,001912CC,extended,0000102D // Eliminate reading vBlankField
+patch=1,EE,204843E0,extended,00000001 // Tripple-buffering
+patch=1,EE,204843E4,extended,00000000 // Progressive 30FPS mode
+patch=1,EE,20484474,extended,00000001 // FullFrameMode
 
 [Widescreen 16:9]
 gsaspectratio=16:9
