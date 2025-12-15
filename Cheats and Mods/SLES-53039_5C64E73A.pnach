@@ -1,0 +1,50 @@
+gametitle=Champions: Return to Arms [SLES_30.39]
+[Epic Menu EN]
+author=Switz0018
+description=Epic Menu for PAL EN
+patch=1,EE,201E26B0,extended,26718418
+patch=1,EE,201E2800,extended,24638418
+patch=1,EE,204F8418,extended,0053F168
+patch=1,EE,204F8428,extended,0053F178
+patch=1,EE,204F8438,extended,0053F188
+patch=1,EE,204F8448,extended,0053F198
+patch=1,EE,204F8458,extended,00559C20
+
+[Epic Menu DE]
+author=Switz0018
+description=Epic Menu for PAL DE
+patch=1,EE,201E26B0,extended,26718418
+patch=1,EE,201E2800,extended,24638418
+patch=1,EE,204F8418,extended,0053F168
+patch=1,EE,204F8428,extended,0053F178
+patch=1,EE,204F8438,extended,0053F188
+patch=1,EE,204F8448,extended,0053F198
+patch=1,EE,204F8458,extended,00559C20
+patch=1,EE,20559C20,extended,6874794D
+patch=1,EE,20559C24,extended,0000736F
+
+[Epic Menu ES]
+author=Switz0018
+description=Epic Menu for PAL ES
+patch=1,EE,201E26B0,extended,26718418
+patch=1,EE,201E2800,extended,24638418
+patch=1,EE,204F8418,extended,0053F168
+patch=1,EE,204F8428,extended,0053F178
+patch=1,EE,204F8438,extended,0053F188
+patch=1,EE,204F8448,extended,0053F198
+patch=1,EE,204F8458,extended,00559C20
+patch=1,EE,20559C20,extended,6F72E948
+patch=1,EE,20559C24,extended,00000065
+
+[Epic Menu FR]
+author=Switz0018
+description=Epic Menu for PAL FR
+patch=1,EE,201E26B0,extended,26718418
+patch=1,EE,201E2800,extended,24638418
+patch=1,EE,204F8418,extended,0053F168
+patch=1,EE,204F8428,extended,0053F178
+patch=1,EE,204F8438,extended,0053F188
+patch=1,EE,204F8448,extended,0053F198
+patch=1,EE,204F8458,extended,00559C20
+patch=1,EE,20559C20,extended,71697045
+patch=1,EE,20559C24,extended,00006575
