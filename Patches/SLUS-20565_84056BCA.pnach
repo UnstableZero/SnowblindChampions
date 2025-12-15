@@ -1,22 +1,5 @@
 gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
 //DNAS patched game
-//Old, causes performance issues.
-//[No-Interlacing]
-//gsinterlacemode=1
-//author=Agrippa
-//description=EE overclock is needed to avoid infrequent frame rate drops.
-//patch=1,EE,204843E0,extended,00000000
-//patch=1,EE,204843E4,extended,00000001
-//patch=1,EE,20484474,extended,00000001
-//patch=1,EE,20190AE4,extended,10000010
-//patch=1,EE,20190B48,extended,10000005
-//patch=1,EE,201913D8,extended,24020001
-//Worked great, left something to be desired.
-//[No Interlacing]
-//description=Disables in-game instruction for interlacing.
-//author=asasega
-//patch=1,EE,201912D8,extended,AE200008
-
 [No-Interlacing]
 author=Switz0018
 description=Looks great at 2x resolution!
