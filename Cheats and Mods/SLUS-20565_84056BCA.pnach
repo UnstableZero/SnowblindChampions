@@ -24,26 +24,6 @@ author=Switz0018
 description=Skip the intro for faster boot!
 patch=1,EE,004866C0,byte,00000001
 
-[Disable Triple-buffering]
-author=Switz0018
-//Bro there
-patch=1,EE,004843E0,byte,00000000
-
-[Full-frame mode 1]
-author=Switz0018
-//is no reason
-patch=1,EE,004843E4,byte,00000000
-
-[Full-frame mode 2]
-author=Switz0018
-//anymore. Thankfully.
-patch=1,EE,00484474,word,00000000
-
-[Engine disable 30fps]
-author=Switz0018
-//to even try these
-patch=1,EE,0048441C,byte,00000001
-
 [Camera Speed]
 author=Switz0018
 description=Force camera speed!
@@ -53,20 +33,6 @@ patch=1,EE,00482146,short,00003FDF
 author=unknown
 description=Zoom in or out!
 patch=1,EE,207D0A16,extended,00004470
-
-[Inventory Model Test]
-author=Switz0018
-description=Fix inventory character display for 16:9
-//position1?, rough values
-//left/right offset
-patch=1,EE,101AD2B8,extended,00004280
-//depth
-patch=1,EE,101AD2EC,extended,00004110
-//right stand left right
-patch=1,EE,101AD77C,extended,00004438
-//right stand depth
-patch=1,EE,20480588,extended,44A00000
-//add left stand
 
 [Mods\Skills\Max Rank]
 author=Switz0018
