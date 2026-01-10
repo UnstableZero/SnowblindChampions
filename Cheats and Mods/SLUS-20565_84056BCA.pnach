@@ -34,6 +34,17 @@ author=unknown
 description=Zoom in or out!
 patch=1,EE,207D0A16,extended,00004470
 
+[SwoopSkip]
+author=Switz0018
+description=Instantly skip camera swoop.
+patch=1,EE,00485070,extended,00000000
+patch=1,EE,00485074,extended,00000001
+
+[RADAR]
+author=Switz0018
+description=Shows everyTHING on the mini-map.
+patch=1,EE,00484F54,extended,00000001
+
 [Mods\Skills\Max Rank]
 author=Switz0018
 description=Changes the maximum rank of skills.
@@ -50,16 +61,6 @@ description=Player 1 infinite mana.
 //Copies player one max mana to current mana, constantly.
 patch=1,EE,504086C8,extended,00000004
 patch=1,EE,004086C4,extended,00000000
-
-[Mods\World Difficulty]
-author=Switz0018
-description=Force the scaling difficulty to a number.
-//Multiplier used to calculate ALL
-//Creature stats, boss stats, and loot all use this!
-//Is constantly changed throughout the game.
-//Adventurous starts at "40400000"(3)
-//IS FLOAT (IEEE-754); VALUE IS FORCED
-patch=1,EE,20484CAC,extended,XXXXXXXX
 
 // These are currently being tested.
 // The following block writes to space reserved for character data regardless of game-mode.
@@ -127,3 +128,9 @@ patch=1,EE,0040E40C,extended,00000000
 //P3
 patch=1,EE,50419F6C,extended,00000004
 patch=1,EE,004141BC,extended,00000000
+
+[Mods\Attack Nerf]
+author=Switz0018
+description=Removes the str and dex bonus from attack.
+patch=1,EE,201A61B8,extended,00802021
+patch=1,EE,201A6500,extended,00601021
