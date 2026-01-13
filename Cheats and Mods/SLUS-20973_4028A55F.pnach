@@ -171,3 +171,9 @@ patch=1,EE,101E5BF0,extended,00003FA0
 patch=1,EE,101E5C18,extended,00003FC0
 //Epic, 1.75
 patch=1,EE,101E5C30,extended,00003FE0
+
+[Mods\Attack Nerf]
+author=Switz0018
+description=Removes the str and dex bonus from attack.
+patch=1,EE,201B7290,extended,00802021
+patch=1,EE,201B77F0,extended,00601021
