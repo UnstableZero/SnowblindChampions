@@ -1,6 +1,6 @@
 gametitle=Champions: Return to Arms [SLES_30.39]
 [Debug Mode]
-author=Contested
+author=Switz0018
 description=Enables Debug Mode!
 patch=1,EE,004FA7E0,extended,00000001
 

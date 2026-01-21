@@ -1,70 +1,56 @@
 gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 90E66BC5
 //Renamed for DNAS patch.
 
-[MC Debug]
+[Debug\Master]
 author=Switz0018
 description=Enables Debug mode.
-//To be explored more, CON enthusiasts.
 patch=1,EE,00485AAC,extended,00000001
 
-[Debug Start Menu]
-author=Trigin
-patch=0,EE,1017FA08,extended,0000F220
+[Debug\Skip Intro]
+author=Switz0018
+description=Skip the intro for faster boot!
+patch=1,EE,004866C0,extended,00000001
+
+[Debug\SwoopSkip]
+author=Switz0018
+description=Instantly skip camera swoop.
+patch=1,EE,00485070,extended,00000000
+patch=1,EE,00485074,extended,00000001
+
+[Debug\RADAR]
+author=Switz0018
+description=Shows everyTHING on the mini-map.
+patch=1,EE,00484F54,extended,00000001
 
 [Cheat Mode]
 author=Switz0018
-//The famous 7-button glitch is actually just R2.
-//And not a glitch.
-//Sets the "CheatMode" flag in memory
-//Partially works on old characters.
-patch=1,EE,00484540,byte,00000001
-
-[Skip Intro]
-author=Switz0018
-description=Skip the intro for faster boot!
-patch=1,EE,004866C0,byte,00000001
+description=The "7-button glitch".
+patch=1,EE,00484540,extended,00000001
 
 [Camera Speed]
 author=Switz0018
 description=Force camera speed!
-patch=1,EE,00482146,short,00003FDF
+patch=1,EE,10482146,extended,00003FDF
 
 [Camera Zoom]
 author=unknown
 description=Zoom in or out!
 patch=1,EE,207D0A16,extended,00004470
 
-[SwoopSkip]
-author=Switz0018
-description=Instantly skip camera swoop.
-patch=1,EE,00485070,extended,00000000
-patch=1,EE,00485074,extended,00000001
-
-[RADAR]
-author=Switz0018
-description=Shows everyTHING on the mini-map.
-patch=1,EE,00484F54,extended,00000001
-
 [Mods\Skills\Max Rank]
 author=Switz0018
 description=Changes the maximum rank of skills.
-//runskilltree
-patch=1,EE,001c01c0,byte,00000020
-patch=1,EE,001C0580,byte,00000020
-//inventoryadjustskill
-patch=1,EE,001AEB50,byte,00000020
-patch=1,EE,001AEBB8,byte,00000020
+patch=1,EE,001c01c0,extended,00000020
+patch=1,EE,001C0580,extended,00000020
+patch=1,EE,001AEB50,extended,00000020
+patch=1,EE,001AEBB8,extended,00000020
 
 [Cheats\Infinite Mana]
 author=Switz0018
 description=Player 1 infinite mana.
-//Copies player one max mana to current mana, constantly.
 patch=1,EE,504086C8,extended,00000004
 patch=1,EE,004086C4,extended,00000000
 
-// These are currently being tested.
-// The following block writes to space reserved for character data regardless of game-mode.
-// During character creation you have 0 xp, so no issues. Thankfully.
 [Mods\Level-Sync\Player 1]
 author=Switz0018
 description=Copy P1 xp when they have ability points.
