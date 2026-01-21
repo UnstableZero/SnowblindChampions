@@ -1,20 +1,9 @@
-The patch files contained in this folder are intentionally formatted.
-Modifying these codes to have the RAW information WILL cause issues with PS2_patch_engine.
+The patch files contained in this folder are formatted for use with lastest PCSX2-Stable release.
 I would not recommend trying this on a disc.
-
-These files are formatted to work with PS2_patch_engine and/or PCSX2's patch system.
-Use of PS2_patch_engine allows the creation of a permanent .iso where bonus fix patch is permanently applied.
-Doing this will cause the CRC of the game to change, I would recommend creating new cheat and patch files for this copy of the game.
-This patch is designed to work entirely within the constraints of the original executable for the game.
-Not all cheats/mods will be compatible, as some addresses within RecomputeAbilityModifiers are now different.
-For ease of use, the PNACH files have no comments, and are fine to copy paste directly into PS2_patch_engine.
-
-If you're using PCSX2, please add this block to the top of the patch for a toggle button.
 
 [HP/MP Bonus Fix]
 author=Switz0018
 description=Hacks in functionality of the health and mana bonus.
-
 
 Some notes:
 
