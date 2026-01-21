@@ -1,3 +1,6 @@
+[HP/MP Bonus Fix]
+author=Switz0018
+description=Hacks in functionality of the health and mana bonus.
 patch=3,EE,201B6974,extended,461D0002
 patch=3,EE,201B6990,extended,4600FFC0
 patch=3,EE,201B69D4,extended,461D0002
@@ -148,3 +151,4 @@ patch=3,EE,201B76E0,extended,461dffc2
 patch=3,EE,201B76E4,extended,e60000c4
 patch=3,EE,201B76E8,extended,0c06fe98
 patch=3,EE,201B76EC,extended,e60100b0
+
