@@ -30,15 +30,22 @@ patch=1,EE,101C0AEC,extended,0000C268 // 0000C22D - Player2 X
 patch=1,EE,101C1040,extended,0000C423 // 0000C3F7 - Pedestal2 X
 
 [No-Interlacing]
-author=Agrippa & Switz0018
-description=Disables interlacing.
+author=Agrippa, updated by Switz0018
+description=Disables interlacing. Improves online.
 gsinterlacemode=1
-patch=1,EE,2019D9B0,extended,0000102D // Don't load the vblankField Byte
-patch=1,EE,2044FDB4,extended,00000001 // Resolution Flag
+patch=1,EE,0044FD40,extended,00000000 // Triple-buffering
+patch=1,EE,0044FD44,extended,00000001 // Progressive Mode (FullFrameMode Internally)
+patch=1,EE,0044FDB4,extended,00000001 // Another FullFrameMode flag, does not do progressive.
 
-[CoN to RTA Import Fix]
+[Online Loading Fix]
+author=Adam & Switz0018
+description=Patches the compression algorithm used for online.
+patch=2,EE,201BE0E0,extended,24100004
+patch=2,EE,201BE188,extended,26100001
+
+[CON to RTA Import Fix]
 author=Switz0018
-description=Prevents the game from scamming your level-up points.
+description=Fixes Lv.50 import bug.
 patch=1,EE,201bd568,extended,00000000
 patch=1,EE,201bd56c,extended,00000000
 patch=1,EE,201bd570,extended,00000000
