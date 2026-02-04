@@ -1,5 +1,6 @@
 The patch files contained in this folder are formatted for use with lastest PCSX2-Stable release.
 I would not recommend trying this on a disc.
+Drag and drop the proper *.pnach file into your PCSX2 patches folder, and enable with one button!
 
 [HP/MP Bonus Fix]
 author=Switz0018
