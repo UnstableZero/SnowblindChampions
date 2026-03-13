@@ -64,10 +64,8 @@ patch=1,EE,101BF308,extended,0000FFFF
 [Mods\Level-Sync\Player 1]
 author=Switz0018
 description=Enable to sync to player 1 on level up.
-//Player 1 attribute point check
-patch=1,EE,D04D8BDC,extended,06310000
-//Copy-paste Player 1 XP to everyone else
-patch=1,EE,504D8B4C,extended,00000004
+patch=1,EE,D04D8BDC,extended,06310000 // Player 1 attribute point check
+patch=1,EE,504D8B4C,extended,00000004 // Copy-paste Player 1 XP to everyone else
 patch=1,EE,004DD77C,extended,00000000
 patch=1,EE,504D8B4C,extended,00000004
 patch=1,EE,004E23AC,extended,00000000
@@ -77,10 +75,8 @@ patch=1,EE,004E6FDC,extended,00000000
 [Mods\Level-Sync\Player 2]
 author=Switz0018
 description=Enable to sync to player 2 on level up.
-//Player 2 attribute point check
-patch=1,EE,D04DD80C,extended,06310000
-//Copy-paste Player 2 XP to everyone else
-patch=1,EE,504DD77C,extended,00000004
+patch=1,EE,D04DD80C,extended,06310000 // Player 2 attribute point check
+patch=1,EE,504DD77C,extended,00000004 // Copy-paste Player 2 XP to everyone else
 patch=1,EE,004D8B4C,extended,00000000
 patch=1,EE,504DD77C,extended,00000004
 patch=1,EE,004E23AC,extended,00000000
@@ -90,10 +86,8 @@ patch=1,EE,004E6FDC,extended,00000000
 [Mods\Level-Sync\Player 3]
 author=Switz0018
 description=Enable to sync to player 3 on level up.
-//Player 3 attribute point check
-patch=1,EE,D04E243C,extended,06310000
-//Copy-paste Player 3 XP to everyone else
-patch=1,EE,504E23AC,extended,00000004
+patch=1,EE,D04E243C,extended,06310000 // Player 3 attribute point check
+patch=1,EE,504E23AC,extended,00000004 // Copy-paste Player 3 XP to everyone elsec
 patch=1,EE,004D8B4C,extended,00000000
 patch=1,EE,504E23AC,extended,00000004
 patch=1,EE,004DD77C,extended,00000000
@@ -103,10 +97,8 @@ patch=1,EE,004E6FDC,extended,00000000
 [Mods\Level-Sync\Player 4]
 author=Switz0018
 description=Enable to sync to player 4 on level up.
-//Player 4 attribute point check
-patch=1,EE,D04E706C,extended,06310000
-//Copy-paste Player 4 XP to everyone else
-patch=1,EE,504E6FDC,extended,00000004
+patch=1,EE,D04E706C,extended,06310000 // Player 4 attribute point check
+patch=1,EE,504E6FDC,extended,00000004 // Copy-paste Player 4 XP to everyone else
 patch=1,EE,004D8B4C,extended,00000000
 patch=1,EE,504E6FDC,extended,00000004
 patch=1,EE,004DD77C,extended,00000000
