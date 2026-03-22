@@ -2,7 +2,7 @@ gametitle=Champions: Return to Arms [SLUS_209.73]
 
 [Debug\Enable]
 author=Trigin, updated by Switz0018
-descriptionMaster flag for debug inventory, vars, warp, invuln,clean up.
+description=Master flag for debug inventory, vars, warp, invuln,clean up.
 patch=1,EE,004F8EE0,extended,00000001
 
 [Debug\Intro Skip]
