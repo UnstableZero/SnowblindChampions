@@ -1,11 +1,11 @@
 [CoN to RTA Import Fix]
 author=Switz0018
 description=Prevents the game from scamming your level-up points.
-patch=1,EE,201bd568,extended,00000000
-patch=1,EE,201bd56c,extended,00000000
-patch=1,EE,201bd570,extended,00000000
-patch=1,EE,201bd574,extended,ae04005c
-patch=1,EE,201bd578,extended,00000000
-patch=1,EE,201bd57c,extended,00000000
-patch=1,EE,201bd580,extended,00000000
-patch=1,EE,201bd584,extended,00000000
+patch=3,EE,201BD568,extended,00000000
+patch=3,EE,201BD56c,extended,00000000
+patch=3,EE,201BD570,extended,00000000
+patch=3,EE,201BD574,extended,AE04005C
+patch=3,EE,201BD578,extended,00000000
+patch=3,EE,201BD57c,extended,00000000
+patch=3,EE,201BD580,extended,00000000
+patch=3,EE,201BD584,extended,00000000

@@ -1,6 +1,5 @@
 gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 84056BCA
 //DNAS patched game
-gametitle=Champions of Norrath * NTSC-U * SLUS-20565 * 90E66BC5
 
 [Widescreen 16:9]
 gsaspectratio=16:9
@@ -36,10 +35,11 @@ patch=1,EE,101AD7A8,extended,0000C452 // 0000C3F7 - Pedstal2 X
 
 [No-Interlacing]
 author=Agrippa & Switz0018
-description=Removes interlacing.
+description=Removes interlacing. Does not Require EE overclock.
 gsinterlacemode=1
-patch=1,EE,001912CC,extended,0000102D // Don't load the vblankField byte.
-patch=1,EE,20484474,extended,00000001 // Resolution flag
+patch=1,EE,101912CC,extended,0000102D // Don't load the vblankField byte.
+patch=1,EE,004843E4,extended,00000000 // Progressive Mode (FullFrameMode internally)
+patch=1,EE,00484474,extended,00000001 // Another FullFrameMode internal flag, this does not do progressive.
 
 [Frustum View Fix]
 author=Switz0018
@@ -53,11 +53,7 @@ patch=1,EE,206EB9BC,extended,BF2B067B // BF43751F - World Right Side
 [EXPERIMENTAL Aggressive Culling]
 author=Switz0018
 description=Helps heavy areas, updated to look less terrible.
-//Right
-patch=1,EE,206EB9B8,extended,3F1644A9//3F2554A9
-//Left
-patch=1,EE,206EB9C4,extended,3F1644A9//3F2554A9
-//Top
-patch=1,EE,206EB9D0,extended,3ECC6BF1//3EDC6BF1
-//Bottom
-patch=1,EE,206EB9DC,extended,3ECC6BF1//3EDC6BF1
+patch=1,EE,206EB9B8,extended,3F1644A9 // 3F2554A9, Right
+patch=1,EE,206EB9C4,extended,3F1644A9 // 3F2554A9, Left
+patch=1,EE,206EB9D0,extended,3ECC6BF1 // 3EDC6BF1, Top
+patch=1,EE,206EB9DC,extended,3ECC6BF1 // 3EDC6BF1, Bottom

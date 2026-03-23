@@ -40,7 +40,7 @@ patch=1,EE,207D0A16,extended,00004470
 [Mods\Skills\Max Rank]
 author=Switz0018
 description=Changes the maximum rank of skills.
-patch=1,EE,001c01c0,extended,00000020
+patch=1,EE,001C01C0,extended,00000020
 patch=1,EE,001C0580,extended,00000020
 patch=1,EE,001AEB50,extended,00000020
 patch=1,EE,001AEBB8,extended,00000020
