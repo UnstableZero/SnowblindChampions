@@ -107,8 +107,8 @@ patch=1,EE,001D0D2C,word,144200AD
 [Mods\Gem Updates]
 author=Switz0018
 description=Changes the internal values of some gems.
-patch=1,EE,003FDC14,byte,0000001B//Globes.
-patch=1,EE,003FDC54,byte,00000026
+patch=1,EE,003FDC14,byte,0000001C//Globes.
+patch=1,EE,003FDC54,byte,00000027
 patch=1,EE,003FDCD4,byte,00000011//Whetstones.
 patch=1,EE,003FDD14,byte,0000001B
 patch=1,EE,003FDD54,byte,00000020
