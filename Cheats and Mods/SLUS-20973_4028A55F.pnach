@@ -121,8 +121,8 @@ patch=1,EE,201D0D2C,extended,144200AD
 [Mods\Gem Updates]
 author=Switz0018
 description=Changes the internal values of some gems.
-patch=1,EE,003FDC14,extended,0000001B // Globes
-patch=1,EE,003FDC54,extended,00000026
+patch=1,EE,003FDC14,extended,0000001C // Globes
+patch=1,EE,003FDC54,extended,00000027
 patch=1,EE,003FDCD4,extended,00000011 // Whetstones.
 patch=1,EE,003FDD14,extended,0000001B
 patch=1,EE,003FDD54,extended,00000020
