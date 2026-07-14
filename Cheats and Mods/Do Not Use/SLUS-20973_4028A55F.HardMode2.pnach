@@ -1,0 +1,121 @@
+[Difficulty Changes]
+author=Switz0018
+description=Modify how difficulty is calculated.
+// To fully understand how difficulty is calculated,
+// we need to know what factors are used, and how.
+// Adv. uses the same equation, without the multiplier.
+// WorldDifficulty = ((Zone Difficulty + 2) * Difficulty Multiplier) + Base Difficulty
+patch=3,EE,201E5B80,extended,24840006 // Add 6 to Zone Difficulty instead of 2.
+patch=3,EE,101E5BCC,extended,00003F80 // Cour, 1.0
+patch=3,EE,101E5BF0,extended,00003FA0 // Champ, 1.25
+patch=3,EE,101E5C10,extended,00003FC0 // Lege, 1.5
+patch=3,EE,101E5C30,extended,00003FE0 // Epic, 1.75
+
+[Unique Item Combining]
+author=Switz0018
+description=Allow Socketing of Uniques(Blue).
+patch=3,EE,201D0D2C,extended,144200AD
+
+[Gem Updates]
+author=Switz0018
+description=Allow Misty Globes and Whetstones drop after Champion.
+patch=3,EE,003FDC14,extended,0000001C // Globes
+patch=3,EE,003FDC54,extended,00000027
+patch=3,EE,003FDCD4,extended,00000011 // Whetstones.
+patch=3,EE,003FDD14,extended,0000001B
+patch=3,EE,003FDD54,extended,00000020
+patch=3,EE,003FDD94,extended,00000026
+
+[Epic Menu]
+author=Switz0018
+description=Adds a custom menu with Epic for offline play.
+patch=3,EE,101E1A38,extended,00006B18 // These codes patch offset calculations.
+patch=3,EE,101E124C,extended,00006B18
+patch=3,EE,204F6B18,extended,0053CC58 // These write the pointers in empty memory.
+patch=3,EE,204F6B28,extended,0053CC68
+patch=3,EE,204F6B38,extended,0053CC78
+patch=3,EE,204F6B48,extended,0053CC88
+patch=3,EE,204F6B58,extended,00557200 // Pointer for Epic.
+
+[XP Table]
+author=Switz0018
+description=~30% increased XP requirements.
+patch=3,EE,2041B55C,extended,000006F7
+patch=3,EE,2041b560,extended,00001446
+patch=3,EE,2041b564,extended,00002937
+patch=3,EE,2041b568,extended,00004347
+patch=3,EE,2041b56c,extended,00005FBC
+patch=3,EE,2041b570,extended,000083E1
+patch=3,EE,2041b574,extended,0000ABC9
+patch=3,EE,2041b578,extended,0000DF70
+patch=3,EE,2041b57c,extended,000116AA
+patch=3,EE,2041b580,extended,000151E1
+patch=3,EE,2041b584,extended,00017895
+patch=3,EE,2041b588,extended,00019F48
+patch=3,EE,2041b58c,extended,0001ED89
+patch=3,EE,2041b590,extended,0002437A
+patch=3,EE,2041b594,extended,0002AF51
+patch=3,EE,2041b598,extended,0002EC2F
+patch=3,EE,2041b59c,extended,00032910
+patch=3,EE,2041b5a0,extended,0003971A
+patch=3,EE,2041b5a4,extended,00040BB7
+patch=3,EE,2041b5a8,extended,00044454
+patch=3,EE,2041b5ac,extended,0004C056
+patch=3,EE,2041b5b0,extended,00054A9A
+patch=3,EE,2041b5b4,extended,0005962F
+patch=3,EE,2041b5b8,extended,000626AB
+patch=3,EE,2041b5bc,extended,00067DDD
+patch=3,EE,2041b5c0,extended,00071C5E
+patch=3,EE,2041b5c4,extended,0007BFFC
+patch=3,EE,2041b5c8,extended,00097B1A
+patch=3,EE,2041b5cc,extended,000A2A22
+patch=3,EE,2041b5d0,extended,000AA13A
+patch=3,EE,2041b5d4,extended,000B5A6A
+patch=3,EE,2041b5d8,extended,000BDE1A
+patch=3,EE,2041b5dc,extended,000CA42A
+patch=3,EE,2041b5e0,extended,000D34C6
+patch=3,EE,2041b5e4,extended,000E04EA
+patch=3,EE,2041b5e8,extended,000EA62D
+patch=3,EE,2041b5ec,extended,000F86EF
+patch=3,EE,2041b5f0,extended,00102BC8
+patch=3,EE,2041b5f4,extended,0010D849
+patch=3,EE,2041b5f8,extended,0011CC57
+patch=3,EE,2041b5fc,extended,00128590
+patch=3,EE,2041b600,extended,00138E2E
+patch=3,EE,2041b604,extended,001445C9
+patch=3,EE,2041b608,extended,0015162E
+patch=3,EE,2041b60c,extended,00162F3C
+patch=3,EE,2041b610,extended,0016F4FA
+patch=3,EE,2041b614,extended,0017D09E
+patch=3,EE,2041b618,extended,0018BA79
+patch=3,EE,2041b61c,extended,0019E144
+patch=3,EE,2041b620,extended,001AD000
+patch=3,EE,2041b624,extended,001BC7EA
+patch=3,EE,2041b628,extended,001CC620
+patch=3,EE,2041b62c,extended,001DB1EF
+patch=3,EE,2041b630,extended,001F0D57
+patch=3,EE,2041b634,extended,00201D62
+patch=3,EE,2041b638,extended,00212900
+patch=3,EE,2041b63c,extended,00224777
+patch=3,EE,2041b640,extended,002366AB
+patch=3,EE,2041b644,extended,00248887
+patch=3,EE,2041b648,extended,0025D267
+patch=3,EE,2041b64c,extended,0026E5B2
+patch=3,EE,2041b650,extended,00286EF2
+patch=3,EE,2041b654,extended,0029AA5C
+patch=3,EE,2041b658,extended,002AD990
+patch=3,EE,2041b65c,extended,002C2436
+patch=3,EE,2041b660,extended,002D753C
+patch=3,EE,2041b664,extended,002EEF99
+patch=3,EE,2041b668,extended,0030576F
+patch=3,EE,2041b66c,extended,0031AF87
+patch=3,EE,2041b670,extended,003404A2
+patch=3,EE,2041b674,extended,0035703A
+patch=3,EE,2041b678,extended,0036E500
+patch=3,EE,2041b67c,extended,0038609A
+patch=3,EE,2041b680,extended,0039DF7E
+patch=3,EE,2041b684,extended,003B6A00
+patch=3,EE,2041b688,extended,003CF2BE
+patch=3,EE,2041b68c,extended,003E8744
+patch=3,EE,2041b690,extended,003FFF1C
+patch=3,EE,2041b694,extended,00417FE4
