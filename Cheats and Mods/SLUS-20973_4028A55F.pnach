@@ -24,13 +24,13 @@ patch=1,EE,004D8BB0,extended,00000000
 [Epic Menu]
 author=Switz0018
 description=Adds a custom menu with Epic for offline play.
-patch=3,EE,101E1A38,extended,00006B18 // These codes patch offset calculations.
-patch=3,EE,101E124C,extended,00006B18
-patch=3,EE,204F6B18,extended,0053CC58 // These write the pointers in empty memory.
-patch=3,EE,204F6B28,extended,0053CC68
-patch=3,EE,204F6B38,extended,0053CC78
-patch=3,EE,204F6B48,extended,0053CC88
-patch=3,EE,204F6B58,extended,00557200 // Pointer for Epic.
+patch=3,EE,101E1A38,extended,00006AA8 // These codes patch offset calculations.
+patch=3,EE,101E124C,extended,00006AA8
+patch=3,EE,204F6AA8,extended,0053CC58 // These write the pointers in empty memory.
+patch=3,EE,204F6AB8,extended,0053CC68
+patch=3,EE,204F6AC8,extended,0053CC78
+patch=3,EE,204F6AD8,extended,0053CC88
+patch=3,EE,204F6AE8,extended,00557200 // Pointer for Epic.
 
 [Camera Speed]
 author=Switz0018
