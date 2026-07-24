@@ -1,3 +1,14 @@
+[Health Changes]
+author=Switz0018
+// Max HP = ((((Level * Class HP per Level) + ((Base Stam + Bonus Stam) * Stam Multiplier))) - Offset) + Bonus HP
+
+[Gate Switch Fix]
+author=Switz0018
+//The Drundar Arena Gate can be opened early by saving and exiting the game to menu.
+//Upon loading the save, the game ADDS your saved gates to the value in memory.
+//The memory used for this data is not cleared upon exit.
+//Instead of ADDING, SET the value.
+
 [Difficulty Changes]
 author=Switz0018
 description=Modify how difficulty is calculated.
@@ -10,6 +21,111 @@ patch=3,EE,101E5BCC,extended,00003F80 // Cour, 1.0
 patch=3,EE,101E5BF0,extended,00003FA0 // Champ, 1.25
 patch=3,EE,101E5C10,extended,00003FC0 // Lege, 1.5
 patch=3,EE,101E5C30,extended,00003FE0 // Epic, 1.75
+
+[Experience Rewards]
+//XP is calculated in a few ways.
+//XP rewards use an individually calculated XP value divided by player level.
+//The result is then passed into powf with 1.4 as an exponent. The result of this is then multiplied by 0.75.
+//This is the main calculation: 0.75(powf((x/y),1.4))
+//fVar21 = powf(*(float *)(this + 0xd8) / (float)iVar4,1.4);
+//iVar4 = (int)((float)(int)fVar21 * 0.75);
+//Some further math is performed to reward XP to multiple players. Singleplayer ends here.
+//In multiplayer, XP is always rewarded in order P1 -> P4.
+//The player to land the killing blow is rewarded more XP than everyone else.
+//A flag is set to identify which player has the killing blow, and is checked for each time we iterate the loop.
+//The player with the killing blow gets 60% of the XP. Every other player gets 40%. Dead players get 20% (half).
+//Everything is converted to int for rounding during the process. 125.206 becomes 125, 93.75 becomes 93, etc.
+//Finally we have: KB = 0.6(0.75(powf((creature_xp/player_level),1.4))), PX = 0.4(0.75(powf((creature_xp/player_level),1.4)))
+//Before XP is rewarded, a secondary check is done.
+//The game tests the XP to rewarded against the difference in XP between the next two levels.
+//(Level+2 XP Cost) - (Level+1 XP Cost)
+//The lesser of the two values is rewarded.
+//at pc -> 001120E4 s0 is equal to the XP to be rewarded.
+//Multiple hardcoded factors can be changed to adjust the reward.
+patch=3,EE,20111E88,extended,3C013F99 // 3FB3* (1.4)    | 3F99* (1.2)
+patch=3,EE,20111E8C,extended,3421999A // *3333          | *999A
+patch=3,EE,20111FDC,extended,3C013EA4 // 3F40 (0.75)    | 3EA3 (0.32)
+patch=3,EE,2011203C,extended,3C013F19 // 3F19* (0.6)
+patch=3,EE,20112040,extended,34219999 // *9999
+patch=3,EE,20112050,extended,3C013ECC // 3ECC* (0.4)
+patch=3,EE,20112054,extended,3421CCCC // *CCCC
+
+[Creature Setup\Experience]
+// param_6 is the pointer for the current object being setup
+// param_5 is the precursor to creature_xp
+// Miniboss and/or Multiplayer checks and multipliers come first.
+// Mini-boss multiplier
+//   param_5 = param_5 * 4.0;
+// Multiplayer multiplier
+//   param_5 = param_5 * ((float)(nmPlayers + -1) + 1.0);
+// End of function
+//  fVar7 = param_5 * WorldDifficulty;
+//  fVar7 = powf(fVar7,1.3219999);
+//  *(float *)(param_6 + 0xd8) = (float)(int)(fVar7 * 8.0);
+// Singleplayer
+//  (powf ((Base_xp * WorldDifficulty), 1.322)) * 8
+// Miniboss
+//  (powf ((Base_xp * 4.0) * WorldDifficulty), 1.322) * 8
+// Multiplayer
+//  (powf ((Base_xp * ((Player_count - 1) + 1.0)), 1.322)) * 8
+patch=3,EE,2010A94C,extended,3C014100 // 4100 (8.0)
+
+[Creature Setup\Health]
+// param_6 is the pointer for the current object being setup
+// param_1 is the precursor to enemy HP
+// Miniboss and/or Multiplayer checks and multipliers come first.
+// Miniboss
+//    param_1 = param_1 * 9.599999;
+// Multiplayer
+//    param_1 = param_1 * ((float)(nmPlayers + -1) * 0.59999996 + 1.0);
+// Singleplayer
+// check if uVar2 is truly a random number
+//  uVar2 = FID_conflict:GameObject::eRand((int)param_6);
+// HP moves into fVar4 here
+//  fVar4 = powf(param_1 * WorldDifficulty,0.84999996);
+//The main step
+//  *(float *)(param_6 + 0x228) = (float)(((double)(long)((int)uVar2 % 5) + 15.5) * (double)fVar4);
+// difficulty modifies apply if we're not on Adv
+// Crg: 1.5x
+// Chp: Add to self (2x)
+// Epc: 2.5x
+// Leg: 3x
+//  *(float *)(param_6 + 0x22c) = fVar5;
+// param_6 + 0x228 is where current HP is saved
+// param_6 + 0x22C is where max HP is saved
+
+[Creature Setup\Armor]
+// param_2 is the precursor to armor, and this is all we do to it.
+//  *(short *)(param_6 + 0xe4) = (short)(int)(param_2 * 14.0 * WorldDifficulty);
+
+[Creature Setup\Attack]
+// param_4 is the precursor to attack
+// Miniboss mulitplier
+//  param_4 = param_4 * 3.0;
+// all other cases
+//  *(short *)(param_6 + 0xd4) = (short)(int)(WorldDifficulty * 14.0 * param_4);
+
+[Creature Setup\Damage]
+// param_3 is the precursor to min-max dmg
+//  fVar7 = param_3 * 1.54;
+// Miniboss multiplier
+//  fVar7 = fVar7 * 1.3;
+// droid multiplier?
+//  fVar7 = fVar7 * ((float)(nmPlayers + -1) * 0.14999999 + fVar4);
+// end step
+//  fVar4 = WorldDifficulty;
+//  fVar6 = powf(fVar4,1.0);
+//  *(short *)(param_6 + 0xd0) = (short)(int)(fVar7 * fVar6);
+//  fVar4 = powf(fVar4,1.0);
+//  sVar1 = (short)(int)((fVar7 + fVar7) * fVar4);
+//  *(short *)(param_6 + 0xd2) = sVar1;
+// if max is somehow less than min, set max to min + 1
+//  if ((int)sVar1 < *(short *)(param_6 + 0xd0) + 1) {
+//   *(short *)(param_6 + 0xd2) = *(short *)(param_6 + 0xd0) + 1;
+// Max Dmg: ((2(Base_damage * 1.54))(powf(WorldDifficulty,1.0)))
+// Min Dmg: ((Base_damage * 1.54)(powf(WorldDifficulty,1.0)))
+// Miniboss Max Dmg: ((2(1.3(Base_damage * 1.54)))(powf(WorldDifficulty,1.0)))
+// Miniboss Min Dmg: ((1.3(Base_damage * 1.54))(powf(WorldDifficulty,1.0)))
 
 [Unique Item Combining]
 author=Switz0018
@@ -26,96 +142,13 @@ patch=3,EE,003FDD14,extended,0000001B
 patch=3,EE,003FDD54,extended,00000020
 patch=3,EE,003FDD94,extended,00000026
 
-[Epic Menu]
+[Diamonds]
 author=Switz0018
-description=Adds a custom menu with Epic for offline play.
-patch=3,EE,101E1A38,extended,00006B18 // These codes patch offset calculations.
-patch=3,EE,101E124C,extended,00006B18
-patch=3,EE,204F6B18,extended,0053CC58 // These write the pointers in empty memory.
-patch=3,EE,204F6B28,extended,0053CC68
-patch=3,EE,204F6B38,extended,0053CC78
-patch=3,EE,204F6B48,extended,0053CC88
-patch=3,EE,204F6B58,extended,00557200 // Pointer for Epic.
-
-[XP Table]
-author=Switz0018
-description=~30% increased XP requirements.
-patch=3,EE,2041B55C,extended,000006F7
-patch=3,EE,2041b560,extended,00001446
-patch=3,EE,2041b564,extended,00002937
-patch=3,EE,2041b568,extended,00004347
-patch=3,EE,2041b56c,extended,00005FBC
-patch=3,EE,2041b570,extended,000083E1
-patch=3,EE,2041b574,extended,0000ABC9
-patch=3,EE,2041b578,extended,0000DF70
-patch=3,EE,2041b57c,extended,000116AA
-patch=3,EE,2041b580,extended,000151E1
-patch=3,EE,2041b584,extended,00017895
-patch=3,EE,2041b588,extended,00019F48
-patch=3,EE,2041b58c,extended,0001ED89
-patch=3,EE,2041b590,extended,0002437A
-patch=3,EE,2041b594,extended,0002AF51
-patch=3,EE,2041b598,extended,0002EC2F
-patch=3,EE,2041b59c,extended,00032910
-patch=3,EE,2041b5a0,extended,0003971A
-patch=3,EE,2041b5a4,extended,00040BB7
-patch=3,EE,2041b5a8,extended,00044454
-patch=3,EE,2041b5ac,extended,0004C056
-patch=3,EE,2041b5b0,extended,00054A9A
-patch=3,EE,2041b5b4,extended,0005962F
-patch=3,EE,2041b5b8,extended,000626AB
-patch=3,EE,2041b5bc,extended,00067DDD
-patch=3,EE,2041b5c0,extended,00071C5E
-patch=3,EE,2041b5c4,extended,0007BFFC
-patch=3,EE,2041b5c8,extended,00097B1A
-patch=3,EE,2041b5cc,extended,000A2A22
-patch=3,EE,2041b5d0,extended,000AA13A
-patch=3,EE,2041b5d4,extended,000B5A6A
-patch=3,EE,2041b5d8,extended,000BDE1A
-patch=3,EE,2041b5dc,extended,000CA42A
-patch=3,EE,2041b5e0,extended,000D34C6
-patch=3,EE,2041b5e4,extended,000E04EA
-patch=3,EE,2041b5e8,extended,000EA62D
-patch=3,EE,2041b5ec,extended,000F86EF
-patch=3,EE,2041b5f0,extended,00102BC8
-patch=3,EE,2041b5f4,extended,0010D849
-patch=3,EE,2041b5f8,extended,0011CC57
-patch=3,EE,2041b5fc,extended,00128590
-patch=3,EE,2041b600,extended,00138E2E
-patch=3,EE,2041b604,extended,001445C9
-patch=3,EE,2041b608,extended,0015162E
-patch=3,EE,2041b60c,extended,00162F3C
-patch=3,EE,2041b610,extended,0016F4FA
-patch=3,EE,2041b614,extended,0017D09E
-patch=3,EE,2041b618,extended,0018BA79
-patch=3,EE,2041b61c,extended,0019E144
-patch=3,EE,2041b620,extended,001AD000
-patch=3,EE,2041b624,extended,001BC7EA
-patch=3,EE,2041b628,extended,001CC620
-patch=3,EE,2041b62c,extended,001DB1EF
-patch=3,EE,2041b630,extended,001F0D57
-patch=3,EE,2041b634,extended,00201D62
-patch=3,EE,2041b638,extended,00212900
-patch=3,EE,2041b63c,extended,00224777
-patch=3,EE,2041b640,extended,002366AB
-patch=3,EE,2041b644,extended,00248887
-patch=3,EE,2041b648,extended,0025D267
-patch=3,EE,2041b64c,extended,0026E5B2
-patch=3,EE,2041b650,extended,00286EF2
-patch=3,EE,2041b654,extended,0029AA5C
-patch=3,EE,2041b658,extended,002AD990
-patch=3,EE,2041b65c,extended,002C2436
-patch=3,EE,2041b660,extended,002D753C
-patch=3,EE,2041b664,extended,002EEF99
-patch=3,EE,2041b668,extended,0030576F
-patch=3,EE,2041b66c,extended,0031AF87
-patch=3,EE,2041b670,extended,003404A2
-patch=3,EE,2041b674,extended,0035703A
-patch=3,EE,2041b678,extended,0036E500
-patch=3,EE,2041b67c,extended,0038609A
-patch=3,EE,2041b680,extended,0039DF7E
-patch=3,EE,2041b684,extended,003B6A00
-patch=3,EE,2041b688,extended,003CF2BE
-patch=3,EE,2041b68c,extended,003E8744
-patch=3,EE,2041b690,extended,003FFF1C
-patch=3,EE,2041b694,extended,00417FE4
+description=Diamonds now drop normally.
+patch=3,EE,003FEBFA,extended,00000000
+patch=3,EE,003FEC3A,extended,00000000
+patch=3,EE,003FEC7A,extended,00000000
+patch=3,EE,003FECBA,extended,00000000
+patch=3,EE,003FECFA,extended,00000000
+patch=3,EE,003FED3A,extended,00000000
+patch=3,EE,003FED7A,extended,00000000
