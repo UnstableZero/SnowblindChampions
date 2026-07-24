@@ -5,6 +5,13 @@ author=Trigin, updated by Switz0018
 description=Master flag for debug inventory, vars, warp, invuln,clean up.
 patch=1,EE,004F8EE0,extended,00000001
 
+[RTA DNAS Bypass - NTSC]
+author=Switz0018
+description=No Sony code was harmed here.
+patch=3,EE,2033F8F8,extended,24030001
+patch=3,EE,2033F908,extended,24030001
+patch=3,EE,2033F914,extended,24030400
+
 [Debug\Intro Skip]
 author=Switz0018
 description=Skips starting videos.
