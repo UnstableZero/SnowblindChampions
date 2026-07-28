@@ -8,3 +8,28 @@ author=Switz0018
 //Adventurous starts at "40400000"(3)
 //IS FLOAT (IEEE-754); VALUE IS FORCED
 //patch=1,EE,2043E064,extended,XXXXXXXX
+
+[Cheats\Infinite Gold]
+author=Switz0018
+description=Shop purchases don't remove gold.
+patch=3,EE,201C2164,extended,00000000
+
+[Cheats\P1 Max Gold]
+author=Switz0018
+description=Forces max gold.
+patch=2,EE,2041BD60,extended,05F5E0FF
+
+[Cheats\P2 Max Gold]
+author=Switz0018
+description=Forces max gold.
+patch=2,EE,20421B10,extended,05F5E0FF
+
+[Cheats\P3 Max Gold]
+author=Switz0018
+description=Forces max gold.
+patch=2,EE,204278C0,extended,05F5E0FF
+
+[Cheats\P4 Max Gold]
+author=Switz0018
+description=Forces max gold.
+patch=2,EE,2042D670,extended,05F5E0FF
