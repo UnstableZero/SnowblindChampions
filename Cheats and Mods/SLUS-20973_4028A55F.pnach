@@ -5,6 +5,11 @@ author=Trigin, updated by Switz0018
 description=Master flag for debug inventory, vars, warp, invuln,clean up.
 patch=1,EE,004F8EE0,extended,00000001
 
+[Debug Cam]
+author=Switz0018
+description=Forces debug cam. L3+R3 to exit.
+patch=1,EE,0086AD9C,byte,00000003
+
 [RTA DNAS Bypass - NTSC]
 author=Switz0018
 description=No Sony code was harmed here.
