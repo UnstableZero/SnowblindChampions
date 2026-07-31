@@ -6,6 +6,11 @@ author=Switz0018
 description=Enables Debug mode.
 patch=1,EE,00485AAC,extended,00000001
 
+[Debug\DoDebugCam]
+author=Switz0018
+description=Forces debug cam. L3+R3 to exit.
+patch=1,EE,007D09BC,byte,00000003
+
 [Debug\Skip Intro]
 author=Switz0018
 description=Skip the intro for faster boot!
